@@ -5,70 +5,289 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ボッチー | 特長・技術詳細</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    body {
+      font-family: 'Yomogi', 'Zen Kurenaido', 'Kaisei Decol', 'Segoe UI', 'Meiryo', sans-serif;
+      background: linear-gradient(135deg, #eaf3ff 0%, #f8f9fa 100%);
+      margin: 0;
+      padding: 0;
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2em 2em 0.5em 2em;
+      background: rgba(255,255,255,0.7);
+      border-bottom: 2px dashed #3B5B78;
+      font-family: 'Kaisei Decol', serif;
+    }
+    .header-title {
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #3B5B78, #E9C46A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .header-date {
+      font-size: 14px;
+      color: #9CA3AF;
+      font-family: 'Zen Kurenaido', sans-serif;
+    }
+    .features-infographic {
+      display: flex;
+      gap: 2em;
+      margin: 2em auto 1em auto;
+      max-width: 1200px;
+      justify-content: space-between;
+    }
+    .features-col {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #3B5B7822;
+      padding: 1.5em 1.2em;
+      position: relative;
+      font-size: 15px;
+      font-family: 'Yomogi', 'Zen Kurenaido', sans-serif;
+      border: 2.5px solid #E9C46A;
+      margin-bottom: 0.5em;
+      transition: box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 24px #B85C3844;
+    }
+    .feature-card .card-title {
+      font-size: 18px;
+      color: #3B5B78;
+      font-weight: bold;
+      margin-bottom: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+    .feature-card .card-desc {
+      color: #334155;
+      line-height: 1.5;
+    }
+    .feature-card .marker {
+      background: linear-gradient(90deg, #E9C46A 60%, #fff 100%);
+      border-radius: 4px;
+      padding: 0 0.3em;
+      font-weight: bold;
+      color: #2E2E2E;
+    }
+    .feature-card .icon {
+      font-size: 1.3em;
+    }
+    .feature-arrow {
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      color: #B85C38;
+      filter: drop-shadow(0 2px 2px #fff8);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .feature-bubble {
+      background: #fff;
+      border-radius: 16px 16px 16px 0;
+      box-shadow: 0 2px 8px #3B5B7822;
+      padding: 1.2em 1.5em;
+      font-size: 16px;
+      color: #3B5B78;
+      font-family: 'Yomogi', 'Zen Kurenaido', sans-serif;
+      position: relative;
+      margin-bottom: 1.5em;
+      border-left: 6px solid #B85C38;
+    }
+    .feature-bubble:before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 18px;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-right: 18px solid #B85C38;
+    }
+    .feature-graph {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      margin-top: 1em;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      background: rgba(233,196,106,0.13);
+      border-radius: 10px;
+      padding: 0.7em 1em;
+      font-size: 15px;
+      font-family: 'Zen Kurenaido', 'Yomogi', sans-serif;
+      border-left: 5px solid #3B5B78;
+      box-shadow: 0 1px 4px #3B5B7822;
+    }
+    .feature-item .icon {
+      font-size: 1.5em;
+    }
+    .feature-item .label {
+      font-weight: bold;
+      color: #3B5B78;
+      margin-right: 0.5em;
+    }
+    .feature-item .desc {
+      color: #334155;
+    }
+    .feature-code {
+      background: #f8f9fa;
+      border-radius: 8px;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 13px;
+      padding: 0.8em 1em;
+      margin: 0.7em 0 0.2em 0;
+      color: #3B5B78;
+      border-left: 4px solid #B85C38;
+      box-shadow: 0 1px 4px #3B5B7822;
+      white-space: pre-line;
+    }
+    .feature-connection {
+      text-align: center;
+      margin: 1.5em 0 1em 0;
+      font-size: 1.2em;
+      color: #B85C38;
+      font-family: 'Zen Kurenaido', sans-serif;
+    }
+    .footer-bar {
+      text-align: right;
+      color: #9CA3AF;
+      font-size: 13px;
+      padding: 1.2em 2em 0.7em 2em;
+      font-family: 'Zen Kurenaido', sans-serif;
+      border-top: 2px dashed #3B5B78;
+      background: rgba(255,255,255,0.7);
+      margin-top: 2em;
+    }
+    @media (max-width: 900px) {
+      .features-infographic { flex-direction: column; gap: 1em; }
+      .features-col { flex: 1 1 100%; }
+    }
+    @media (max-width: 600px) {
+      .header-bar, .footer-bar { padding: 1em 0.5em; }
+      .features-infographic { max-width: 100vw; }
+      .feature-card { padding: 1em 0.5em; }
+      .feature-bubble { padding: 0.7em 0.7em; font-size: 14px; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>ボッチーの特長と技術詳細</h1>
-    <nav>
-      <a href="index.html">トップ</a> |
-      <a href="features.html">特長</a> |
-      <a href="updates.html">アップデート履歴</a> |
-      <a href="rules.html">ルール</a>
-    </nav>
-  </header>
+  <div class="header-bar">
+    <div class="header-title">📊 ボッチーの特長・技術詳細</div>
+    <div class="header-date">2024年4月 / Bocchy Project</div>
+  </div>
   <main>
-    <!-- AI応答セクション -->
-    <section id="ai">
-      <h2>🤖 AI応答</h2>
-      <p>OpenAI GPT-4oを活用した自然な会話生成。LLMの力を最大限に活かし、シンプルなロジックで高品質な応答を実現。</p>
-      <pre><code>// 例: LLM応答生成関数
+    <div class="features-infographic">
+      <!-- 左カラム：全体像・設計思想 -->
+      <div class="features-col">
+        <div class="feature-card" style="border-color:#3B5B78;">
+          <div class="card-title"><span class="icon">🧩</span>設計思想</div>
+          <div class="card-desc">
+            <span class="marker">シンプル＆拡張性</span>を重視し、<br>
+            <span style="color:#B85C38;">「誰でも使いやすく、進化し続けるAIボット」</span>を目指しています。<br>
+            各機能は独立性が高く、<span class="marker">モジュール設計</span>で実装。
+          </div>
+        </div>
+        <div class="feature-bubble">
+          どんなユーザーにも<br>「わかりやすく・楽しい」体験を！
+        </div>
+      </div>
+      <!-- 中央カラム：各機能カード -->
+      <div class="features-col">
+        <div class="feature-card" style="border-color:#E9C46A;">
+          <div class="card-title"><span class="icon">🤖</span>AI応答</div>
+          <div class="card-desc">
+            OpenAI GPT-4oを活用した自然な会話生成。<br>
+            LLMの力を最大限に活かし、シンプルなロジックで高品質な応答を実現。
+          </div>
+          <div class="feature-code">// 例: LLM応答生成関数
 async function generateReply(context) {
   // ... LLM API呼び出し ...
-}
-</code></pre>
-    </section>
-    <!-- Google検索連携セクション -->
-    <section id="search">
-      <h2>🔎 Google検索連携</h2>
-      <p>Google Custom Search APIで最新情報を取得し、要約・出典付きで返答。</p>
-      <pre><code>// 例: 検索API呼び出し
+}</div>
+        </div>
+        <div class="feature-card" style="border-color:#3B5B78;">
+          <div class="card-title"><span class="icon">🔎</span>Google検索連携</div>
+          <div class="card-desc">
+            Google Custom Search APIで最新情報を取得し、要約・出典付きで返答。
+          </div>
+          <div class="feature-code">// 例: 検索API呼び出し
 async function searchGoogle(query) {
   // ... APIリクエスト・タイムアウト/リトライ ...
-}
-</code></pre>
-    </section>
-    <!-- 記憶管理セクション -->
-    <section id="memory">
-      <h2>🧠 記憶管理</h2>
-      <p>Supabaseを用いた短期・長期記憶の管理。会話履歴や要約を保存し、文脈を維持。</p>
-      <pre><code>// 例: 記憶保存処理
+}</div>
+        </div>
+        <div class="feature-card" style="border-color:#B85C38;">
+          <div class="card-title"><span class="icon">🧠</span>記憶管理</div>
+          <div class="card-desc">
+            Supabaseを用いた短期・長期記憶の管理。<br>
+            会話履歴や要約を保存し、文脈を維持。
+          </div>
+          <div class="feature-code">// 例: 記憶保存処理
 async function saveMemory(userId, message) {
   // ... Supabaseへの保存 ...
-}
-</code></pre>
-    </section>
-    <!-- 空気読みセクション -->
-    <section id="mood">
-      <h2>🎈 空気読み</h2>
-      <p>会話の盛り上がり度をAIで解析し、自然なタイミングで介入・応答。</p>
-      <pre><code>// 例: 盛り上がり度判定
+}</div>
+        </div>
+        <div class="feature-card" style="border-color:#E9C46A;">
+          <div class="card-title"><span class="icon">🎈</span>空気読み</div>
+          <div class="card-desc">
+            会話の盛り上がり度をAIで解析し、自然なタイミングで介入・応答。
+          </div>
+          <div class="feature-code">// 例: 盛り上がり度判定
 function calcMoodLevel(messages) {
   // ... AI判定ロジック ...
-}
-</code></pre>
-    </section>
-    <!-- 頻繁な進化セクション -->
-    <section id="update">
-      <h2>🛠️ 頻繁な進化</h2>
-      <p>CI/CD・自動化により、日々新機能や改善が反映されます。</p>
-      <pre><code>// 例: GitHub Actionsによる自動デプロイ
+}</div>
+        </div>
+        <div class="feature-card" style="border-color:#3B5B78;">
+          <div class="card-title"><span class="icon">🛠️</span>頻繁な進化</div>
+          <div class="card-desc">
+            CI/CD・自動化により、日々新機能や改善が反映されます。
+          </div>
+          <div class="feature-code">// 例: GitHub Actionsによる自動デプロイ
 name: Deploy to Pages
-on: [push]
-</code></pre>
-    </section>
+on: [push]</div>
+        </div>
+      </div>
+      <!-- 右カラム：関係性・全体像まとめ -->
+      <div class="features-col">
+        <div class="feature-card" style="border-color:#B85C38;">
+          <div class="card-title"><span class="icon">🔗</span>機能のつながり</div>
+          <div class="card-desc">
+            <ul style="margin:0 0 0 1em; padding:0;">
+              <li>AI応答・検索・記憶管理は相互に連携</li>
+              <li>空気読みで会話の流れを最適化</li>
+              <li>頻繁な進化で全体が日々アップデート</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-connection">
+          <span style="font-size:1.5em;">↔️</span> <span style="color:#3B5B78;">各機能は連携し合い<br>ボッチーの「賢さ」と「楽しさ」を支えます！</span>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer>
-    <p>&copy; 2024 Bocchy Project</p>
-  </footer>
+  <div class="footer-bar">
+    出典：Bocchy Project / グラフィックレコーディング風デザイン by inforgraphic.mdc<br>
+    &copy; 2024 Bocchy Project
+  </div>
 </body>
 </html> 

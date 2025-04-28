@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 Prompt：
 # グラフィックレコーディング風インフォグラフィック変換プロンプト
 ## 目的
@@ -34,7 +39,6 @@ html
 @import
  url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
     </style>
-
 ### 4. レイアウト
   - ヘッダー：左揃えタイトル＋右揃え日付/出典
   - 3カラム構成：左側33%、中央33%、右側33%
@@ -47,7 +51,6 @@ html
 - キーワードを囲み線や色で強調
 - 簡易的なアイコンや図形で概念を視覚化
 - 数値データは簡潔なグラフや図表で表現
-- マインドマップで視覚的理解を補完
 - 接続線や矢印で情報間の関係性を明示
 - 余白を効果的に活用して視認性を確保
 ## 全体的な指針
