@@ -1,0 +1,108 @@
+body {
+  font-family: 'Segoe UI', 'Meiryo', sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+header, footer {
+  background: #e0e7ef;
+  padding: 1em 2em;
+  text-align: center;
+}
+nav a {
+  color: #2a5d9f;
+  text-decoration: none;
+  margin: 0 0.5em;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  max-width: 800px;
+  margin: 2em auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2em;
+}
+.features-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 2em auto;
+}
+.feature {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: #eaf3ff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  box-shadow: 0 1px 4px #0002;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.feature:hover {
+  background: #d0e6ff;
+}
+/* 円形配置（5つ） */
+.feature[data-detail="ai"]      { top: 0; left: 50%; transform: translate(-50%, 0); }
+.feature[data-detail="search"]  { top: 25%; left: 90%; transform: translate(-50%, -50%); }
+.feature[data-detail="memory"]  { top: 75%; left: 80%; transform: translate(-50%, -50%); }
+.feature[data-detail="mood"]    { top: 75%; left: 20%; transform: translate(-50%, -50%); }
+.feature[data-detail="update"]  { top: 25%; left: 10%; transform: translate(-50%, -50%); }
+#feature-detail {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+#feature-detail.hidden {
+  display: none;
+}
+#feature-detail #detail-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2em;
+  min-width: 300px;
+  max-width: 90vw;
+  box-shadow: 0 2px 16px #0003;
+}
+#close-detail {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  background: #e0e7ef;
+  border: none;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  font-size: 1em;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .features-circle {
+    width: 220px;
+    height: 220px;
+  }
+  .feature {
+    width: 60px;
+    height: 60px;
+    font-size: 1em;
+  }
+  main {
+    padding: 1em;
+  }
+}
+/* その他の要素は必要に応じて追加・調整してください */ 

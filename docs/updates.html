@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー | アップデート履歴</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>アップデート履歴</h1>
+    <nav>
+      <a href="index.html">トップ</a> |
+      <a href="features.html">特長</a> |
+      <a href="updates.html">アップデート履歴</a> |
+      <a href="rules.html">ルール</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>更新履歴一覧</h2>
+      <div id="updates-list">
+        <!-- updates.jsonから自動生成されるエリア -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Bocchy Project</p>
+  </footer>
+  <script src="assets/updates.js"></script>
+  <!-- コメント：
+    - updates-list内にupdates.jsonの内容をJSで自動挿入
+    - updates.jsでfetch & DOM生成を実装予定
+  -->
+</body>
+</html> 

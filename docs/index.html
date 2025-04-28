@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー | 自己紹介</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- 必要に応じてJS/CSS追加 -->
+</head>
+<body>
+  <header>
+    <h1>ボッチーとは？</h1>
+    <p>Discordで活躍するAIチャットボット「ボッチー」の自己紹介ページです。</p>
+  </header>
+  <main>
+    <section id="infographic">
+      <!-- インフォグラフィック：特徴アイコンを円形に配置 -->
+      <div class="features-circle">
+        <div class="feature" data-detail="ai">🤖<br>AI応答</div>
+        <div class="feature" data-detail="search">🔎<br>Google検索</div>
+        <div class="feature" data-detail="memory">🧠<br>記憶管理</div>
+        <div class="feature" data-detail="mood">🎈<br>空気読み</div>
+        <div class="feature" data-detail="update">🛠️<br>頻繁な進化</div>
+      </div>
+      <!-- 詳細表示用ポップアップ -->
+      <div id="feature-detail" class="hidden">
+        <button id="close-detail">閉じる</button>
+        <div id="detail-content"></div>
+      </div>
+    </section>
+    <section>
+      <h2>ボッチーの特徴</h2>
+      <ul>
+        <li>AIによる自然な会話と空気読み</li>
+        <li>Google検索で最新情報も即答</li>
+        <li>会話の文脈・履歴を記憶して賢く応答</li>
+        <li>頻繁なアップデートで日々進化</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Bocchy Project</p>
+  </footer>
+  <script src="assets/main.js"></script>
+  <!-- コメント：
+    - features-circle内の各.featureをクリックすると詳細がポップアップ表示されます
+    - 詳細内容はmain.jsで制御予定
+    - デザインやアニメーションはstyle.cssで調整可能
+  -->
+</body>
+</html> 

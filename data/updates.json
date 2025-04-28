@@ -1,0 +1,19 @@
+[
+  {
+    "version": "1.0.0",
+    "date": "2024-05-01",
+    "title": "初回リリース",
+    "changes": [
+      "AI応答機能の実装",
+      "Google検索連携の追加",
+      "Supabaseによる記憶管理",
+      "空気読み（盛り上がり度判定）機能の追加"
+    ],
+    "techPoints": [
+      "OpenAI GPT-4o API連携",
+      "Google Custom Search API利用",
+      "Supabase DB連携設計"
+    ],
+    "summary": "ボッチーの最初のバージョンを公開しました。AIによる自然な会話と最新情報検索、記憶管理、空気読み機能を搭載しています。"
+  }
+] 

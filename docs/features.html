@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー | 特長・技術詳細</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>ボッチーの特長と技術詳細</h1>
+    <nav>
+      <a href="index.html">トップ</a> |
+      <a href="features.html">特長</a> |
+      <a href="updates.html">アップデート履歴</a> |
+      <a href="rules.html">ルール</a>
+    </nav>
+  </header>
+  <main>
+    <!-- AI応答セクション -->
+    <section id="ai">
+      <h2>🤖 AI応答</h2>
+      <p>OpenAI GPT-4oを活用した自然な会話生成。LLMの力を最大限に活かし、シンプルなロジックで高品質な応答を実現。</p>
+      <pre><code>// 例: LLM応答生成関数
+async function generateReply(context) {
+  // ... LLM API呼び出し ...
+}
+</code></pre>
+    </section>
+    <!-- Google検索連携セクション -->
+    <section id="search">
+      <h2>🔎 Google検索連携</h2>
+      <p>Google Custom Search APIで最新情報を取得し、要約・出典付きで返答。</p>
+      <pre><code>// 例: 検索API呼び出し
+async function searchGoogle(query) {
+  // ... APIリクエスト・タイムアウト/リトライ ...
+}
+</code></pre>
+    </section>
+    <!-- 記憶管理セクション -->
+    <section id="memory">
+      <h2>🧠 記憶管理</h2>
+      <p>Supabaseを用いた短期・長期記憶の管理。会話履歴や要約を保存し、文脈を維持。</p>
+      <pre><code>// 例: 記憶保存処理
+async function saveMemory(userId, message) {
+  // ... Supabaseへの保存 ...
+}
+</code></pre>
+    </section>
+    <!-- 空気読みセクション -->
+    <section id="mood">
+      <h2>🎈 空気読み</h2>
+      <p>会話の盛り上がり度をAIで解析し、自然なタイミングで介入・応答。</p>
+      <pre><code>// 例: 盛り上がり度判定
+function calcMoodLevel(messages) {
+  // ... AI判定ロジック ...
+}
+</code></pre>
+    </section>
+    <!-- 頻繁な進化セクション -->
+    <section id="update">
+      <h2>🛠️ 頻繁な進化</h2>
+      <p>CI/CD・自動化により、日々新機能や改善が反映されます。</p>
+      <pre><code>// 例: GitHub Actionsによる自動デプロイ
+name: Deploy to Pages
+on: [push]
+</code></pre>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Bocchy Project</p>
+  </footer>
+</body>
+</html> 
