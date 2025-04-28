@@ -65,4 +65,4 @@ Bocchy Discord Botの概要・技術詳細・アップデート履歴・設計�
 ---
 
 ## 連絡先
-- ご意見・ご要望はGitHub IssuesまたはDiscordまで 
+- ご意見・ご要望はGitHub IssuesまたはDiscordまで
