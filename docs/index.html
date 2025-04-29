@@ -264,158 +264,163 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1 class="title">ボッチー プロジェクト</h1>
-      <div class="date">2024年5月1日</div>
+      <h1 class="title">ボッチー Discord Bot</h1>
+      <div class="date">2024年5月22日</div>
     </div>
     
     <div class="nav-menu">
-      <a href="#features" class="nav-link"><span class="icon">📊</span>特長・技術詳細</a>
+      <a href="#" class="nav-link active"><span class="icon">🏠</span>ホーム</a>
       <a href="./bocchy-updates.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
       <a href="./rules.html" class="nav-link"><span class="icon">📜</span>ルール・マニフェスト</a>
       <a href="./logic-flow.html" class="nav-link"><span class="icon">🔄</span>ロジックフロー</a>
     </div>
     
-    <div class="grid" id="features">
-      <div class="card">
-        <div class="version-tag">v1.0.0</div>
-        <h2 class="section-title">機能紹介 📱</h2>
+    <div class="intro-section">
+      <p class="intro-text">
+        <span class="highlight">ボッチー</span>は自然な会話ができるAI搭載Discord Botです。
+        最新情報の検索、会話の記憶、空気を読む機能など、あなたのDiscordサーバーに新しい体験をもたらします。
+      </p>
+    </div>
+    
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="card-header">
+          <h2 class="card-title">AI応答機能</h2>
+          <div class="card-icon">🤖</div>
+        </div>
         <ul class="feature-list">
-          <li class="feature-item">AI応答機能の実装</li>
-          <li class="feature-item">Google検索連携の追加</li>
-          <li class="feature-item">Supabaseによる記憶管理</li>
-          <li class="feature-item">空気読み（盛り上がり度判定）機能</li>
+          <li>OpenAI GPT-4oによる高度な対話能力</li>
+          <li>自然な会話と質問への的確な回答</li>
+          <li>文脈を理解した継続的な会話</li>
+          <li>個性的かつ親しみやすい応答スタイル</li>
         </ul>
       </div>
       
-      <div class="card">
-        <h2 class="section-title">技術ポイント 🔧</h2>
+      <div class="feature-card">
+        <div class="card-header">
+          <h2 class="card-title">検索連携</h2>
+          <div class="card-icon">🔍</div>
+        </div>
         <ul class="feature-list">
-          <li class="feature-item">OpenAI GPT-4o API連携</li>
-          <li class="feature-item">Google Custom Search API利用</li>
-          <li class="feature-item">Supabase DB連携設計</li>
-          <li class="feature-item">Discord.js による実装</li>
+          <li>Google Custom Search連携による情報検索</li>
+          <li>最新の情報へのアクセスと提供</li>
+          <li>検索結果を元にした回答の生成</li>
+          <li>質問に応じた検索ワード最適化</li>
         </ul>
       </div>
       
-      <div class="card">
-        <h2 class="section-title">開発情報 🚀</h2>
+      <div class="feature-card">
+        <div class="card-header">
+          <h2 class="card-title">記憶管理</h2>
+          <div class="card-icon">💾</div>
+        </div>
         <ul class="feature-list">
-          <li class="feature-item">初回リリース</li>
-          <li class="feature-item">2024年5月1日公開</li>
-          <li class="feature-item">4つの主要機能を実装</li>
-          <li class="feature-item">3種類のAPI連携</li>
+          <li>Supabaseによる会話履歴の保持</li>
+          <li>ユーザーごとの対話記録と参照</li>
+          <li>コンテキスト維持による自然な会話</li>
+          <li>過去の情報を活用した対話品質向上</li>
         </ul>
       </div>
       
-      <div class="summary-box">
-        <h3 class="summary-title">開発サマリー</h3>
-        <p class="summary-content">
-          ボッチーの<span class="highlight">最初のバージョン</span>を公開しました。AIによる自然な会話と最新情報検索、記憶管理、
-          空気読み機能を搭載しています。OpenAI GPT-4oを活用した高度な会話能力、Google検索連携による情報取得、
-          Supabaseを使った記憶システムにより、ユーザーとの対話をより<span class="highlight">自然で有益</span>なものにしています。
-        </p>
+      <div class="feature-card">
+        <div class="card-header">
+          <h2 class="card-title">空気読み機能</h2>
+          <div class="card-icon">🎭</div>
+        </div>
+        <ul class="feature-list">
+          <li>会話の文脈や盛り上がりの検出</li>
+          <li>状況に応じた介入度の自動調整</li>
+          <li>感情分析による適切な対応</li>
+          <li>グループ会話のリズムを尊重</li>
+        </ul>
       </div>
     </div>
     
     <div class="flow-section">
-      <h2 class="flow-title">自然対話処理フロー</h2>
+      <h2 class="section-title">自然対話処理フロー</h2>
       
-      <div class="flowchart">
+      <div class="flow-chart">
         <div class="flow-step">
-          <div class="flow-node">ユーザー入力</div>
-          <div class="flow-explanation">
-            Discordチャットからの入力を受け取り、処理の開始点となります。
+          <div class="step-content">
+            <h3>ユーザー入力</h3>
+            <p>Discordでのメッセージ</p>
           </div>
+          <div class="step-arrow">↓</div>
         </div>
         
-        <div class="flow-arrow"></div>
-        
         <div class="flow-step">
-          <div class="flow-node">意図理解</div>
-          <div class="flow-explanation">
-            GPT-4oがユーザーの質問や指示の意図を分析し、返答に必要な情報や処理を判断します。
+          <div class="step-content">
+            <h3>意図理解</h3>
+            <p>AIによる質問・指示の分析</p>
           </div>
+          <div class="step-arrow">↓</div>
         </div>
         
-        <div class="flow-arrow"></div>
-        
         <div class="flow-step">
-          <div class="flow-node">情報検索判断</div>
-          <div class="flow-explanation">
-            外部情報が必要か、既存の知識で対応可能かを判断します。最新情報や具体的事実の確認には検索機能を活用します。
+          <div class="step-content">
+            <h3>情報収集</h3>
+            <p>必要に応じた検索実行</p>
           </div>
+          <div class="step-arrow">↓</div>
         </div>
         
-        <div class="flow-arrow"></div>
-        
         <div class="flow-step">
-          <div class="flow-node">Google検索連携</div>
-          <div class="flow-explanation">
-            Custom Search APIを使って関連情報を検索し、結果を取得します。検索結果を基に回答を生成するための情報を補完します。
+          <div class="step-content">
+            <h3>記憶参照</h3>
+            <p>過去の会話文脈を取得</p>
           </div>
+          <div class="step-arrow">↓</div>
         </div>
         
-        <div class="flow-arrow"></div>
-        
         <div class="flow-step">
-          <div class="flow-node">記憶参照</div>
-          <div class="flow-explanation">
-            過去の会話履歴をSupabaseから取得し、文脈理解や一貫性のある会話を実現します。ユーザーごとの対話履歴を管理します。
+          <div class="step-content">
+            <h3>応答生成</h3>
+            <p>GPT-4oによる回答作成</p>
           </div>
+          <div class="step-arrow">↓</div>
         </div>
         
-        <div class="flow-arrow"></div>
-        
         <div class="flow-step">
-          <div class="flow-node">空気読み判定</div>
-          <div class="flow-explanation">
-            会話の盛り上がり度や適切な対応レベルを分析し、状況に合わせたトーンと内容で応答します。
-          </div>
-        </div>
-        
-        <div class="flow-arrow"></div>
-        
-        <div class="flow-step">
-          <div class="flow-node">応答生成・送信</div>
-          <div class="flow-explanation">
-            収集した情報を基に、最適な応答を生成しDiscordに送信します。同時に会話履歴を記憶として保存します。
+          <div class="step-content">
+            <h3>記憶保存</h3>
+            <p>会話内容をDBに保存</p>
           </div>
         </div>
       </div>
-      
-      <h2 class="flow-title">Web検索連携マインドマップ</h2>
-      
-      <div class="mindmap">
-        <div class="mindmap-center">Google検索<br>連携機能</div>
-        
-        <div class="mindmap-connector" style="width: 100px; height: 2px; top: 60px; left: 50%; transform: translateX(-50%) rotate(270deg);"></div>
-        <div class="mindmap-branch branch1">
-          <strong>検索キーワード抽出</strong><br>
-          ユーザー質問から関連キーワードを特定
+    </div>
+    
+    <div class="summary-box">
+      <h2 class="summary-title">プロジェクト概要</h2>
+      <div class="summary-content">
+        <p><span class="tag">バージョン</span>v1.0.0</p>
+        <p><span class="tag">公開日</span>2024年5月1日</p>
+        <p><span class="tag">開発</span>ボッチープロジェクト</p>
+        <p class="summary-text">
+          ボッチーはOpenAI GPT-4o APIを活用した高度な会話能力と、Google検索連携による最新情報取得機能を持つDiscord Botです。
+          ユーザーとの自然な対話、会話の記憶保持、空気を読む機能により、より人間らしい会話体験を提供します。
+          Supabaseを活用した記憶システムにより、長期的な関係構築も可能です。
+        </p>
+      </div>
+    </div>
+    
+    <div class="tech-section">
+      <h2 class="section-title">主要技術</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <div class="tech-icon">🧠</div>
+          <div class="tech-name">OpenAI<br>GPT-4o API</div>
         </div>
-        
-        <div class="mindmap-connector" style="width: 130px; height: 2px; top: 50%; left: 55%; transform: translateY(-50%);"></div>
-        <div class="mindmap-branch branch2">
-          <strong>API連携処理</strong><br>
-          Google Custom Search APIで情報取得
+        <div class="tech-item">
+          <div class="tech-icon">🔎</div>
+          <div class="tech-name">Google<br>Custom Search</div>
         </div>
-        
-        <div class="mindmap-connector" style="width: 100px; height: 2px; top: 50%; left: 50%; transform: translateX(-50%) rotate(90deg);"></div>
-        <div class="mindmap-branch branch3">
-          <strong>検索結果統合</strong><br>
-          収集情報を整理・要約して回答に反映
+        <div class="tech-item">
+          <div class="tech-icon">🗄️</div>
+          <div class="tech-name">Supabase<br>Database</div>
         </div>
-        
-        <div class="mindmap-connector" style="width: 130px; height: 2px; top: 50%; left: 45%; transform: translateY(-50%) rotate(180deg);"></div>
-        <div class="mindmap-branch branch4">
-          <strong>情報新鮮度判定</strong><br>
-          最新情報の確認と古い情報の識別
-        </div>
-        
-        <div class="mindmap-connector" style="width: 100px; height: 2px; top: 130px; left: 40%; transform: rotate(315deg);"></div>
-        <div class="mindmap-branch branch5">
-          <strong>検索頻度最適化</strong><br>
-          必要な時だけ検索して効率化
+        <div class="tech-item">
+          <div class="tech-icon">🤝</div>
+          <div class="tech-name">Discord.js<br>API</div>
         </div>
       </div>
     </div>
