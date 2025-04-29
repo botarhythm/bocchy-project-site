@@ -248,134 +248,82 @@
       padding-top: 20px;
       text-align: center;
       border-top: 2px dashed var(--color-asatsuyu);
-      font-size: 12px;
       color: var(--color-umigiri);
+      font-size: 14px;
     }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, var(--color-yuzuha) 60%);
+      font-weight: bold;
     }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-
-    .footer-logo-icon {
-      font-size: 1.8em;
-      color: var(--color-asatsuyu);
-    }
-
-    .footer-logo-text {
-      font-family: 'Kaisei Decol', serif;
-      color: var(--color-asatsuyu);
-    }
-
-    .footer-copyright {
-      color: var(--color-umigiri);
-      font-size: 0.9em;
-    }
-
+    
     @media (max-width: 768px) {
       .grid {
         grid-template-columns: 1fr;
       }
       
       .summary-box {
-        grid-column: span 1;
-      }
-      
-      .nav-menu {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .nav-link {
-        width: 100%;
-        justify-content: center;
+        grid-column: 1;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="deco-circle"></div>
-    <div class="deco-circle"></div>
-    
-    <header class="header">
+    <div class="header">
       <h1 class="title">ボッチー プロジェクト</h1>
-      <div class="date">2025年4月29日</div>
-    </header>
+      <div class="date">2024年5月1日</div>
+    </div>
     
-    <nav class="nav-menu">
-      <a href="features.html" class="nav-link">
-        <span class="icon">📊</span>特長・技術詳細
-      </a>
-      <a href="updates.html" class="nav-link">
-        <span class="icon">🕒</span>アップデート履歴
-      </a>
-      <a href="rules.html" class="nav-link">
-        <span class="icon">📜</span>ルール・マニフェスト
-      </a>
-    </nav>
+    <div class="nav-menu">
+      <a href="#features" class="nav-link"><span class="icon">📊</span>特長・技術詳細</a>
+      <a href="./bocchy-updates.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
+      <a href="./rules.html" class="nav-link"><span class="icon">📜</span>ルール・マニフェスト</a>
+    </div>
     
-    <div class="grid">
+    <div class="grid" id="features">
       <div class="card">
-        <div class="version-tag">v2.1.0</div>
+        <div class="version-tag">v1.0.0</div>
         <h2 class="section-title">機能追加 📱</h2>
         <ul class="feature-list">
-          <li class="feature-item">音声認識機能の強化</li>
-          <li class="feature-item">マルチモーダル対応（画像理解）</li>
-          <li class="feature-item">ユーザー好みの学習システム</li>
-          <li class="feature-item">プラグイン連携機能の拡張</li>
+          <li class="feature-item">AI応答機能の実装</li>
+          <li class="feature-item">Google検索連携の追加</li>
+          <li class="feature-item">Supabaseによる記憶管理</li>
+          <li class="feature-item">空気読み（盛り上がり度判定）機能の追加</li>
         </ul>
       </div>
       
       <div class="card">
         <h2 class="section-title">技術ポイント 🔧</h2>
         <ul class="feature-list">
-          <li class="feature-item">OpenAI GPT-5 API連携</li>
-          <li class="feature-item">画像認識モデル統合</li>
-          <li class="feature-item">Vector DB最適化</li>
-          <li class="feature-item">レスポンス速度50%向上</li>
+          <li class="feature-item">OpenAI GPT-4o API連携</li>
+          <li class="feature-item">Google Custom Search API利用</li>
+          <li class="feature-item">Supabase DB連携設計</li>
         </ul>
       </div>
       
       <div class="card">
         <h2 class="section-title">開発情報 🚀</h2>
         <ul class="feature-list">
-          <li class="feature-item">メジャーアップデート</li>
-          <li class="feature-item">2025年4月29日公開</li>
-          <li class="feature-item">ユーザーフィードバック反映</li>
-          <li class="feature-item">開発者API公開</li>
+          <li class="feature-item">初回リリース</li>
+          <li class="feature-item">2024年5月1日公開</li>
+          <li class="feature-item">ボッチープロジェクト</li>
         </ul>
       </div>
       
       <div class="summary-box">
-        <h2 class="summary-title">開発サマリー</h2>
+        <h3 class="summary-title">開発サマリー</h3>
         <p class="summary-content">
-          ボッチーの機能を大幅に強化しました。マルチモーダル対応で画像理解が可能になり、音声認識精度が向上。ユーザーの好みを学習して応答をカスタマイズし、外部サービスとの連携も拡張しています。また、GPT-5採用による理解力と表現力の向上、Vectorデータベースの最適化によりレスポンス速度が50%向上しました。
+          ボッチーの<span class="highlight">最初のバージョン</span>を公開しました。<span class="highlight">AIによる自然な会話</span>と<span class="highlight">最新情報検索</span>、<span class="highlight">記憶管理</span>、<span class="highlight">空気読み機能</span>を搭載しています。OpenAI GPT-4oを活用した高度な会話能力、Google検索連携による情報取得、Supabaseを使った記憶システムにより、ユーザーとの対話をより自然で有益なものにしています。
         </p>
       </div>
     </div>
     
+    <div class="deco-circle"></div>
+    <div class="deco-circle"></div>
+    
     <div class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">🟦</div>
-          <div class="footer-logo-text">Bocchy Project</div>
-        </div>
-        <div class="footer-copyright">
-          <div>© 2025 ボッチー - AIアシスタントボット</div>
-          <div>最終更新: 2025年4月29日</div>
-        </div>
-      </div>
+      <p>&copy; 2024 ボッチープロジェクト - Discord Bot「ボッチー」開発チーム</p>
     </div>
   </div>
 </body>

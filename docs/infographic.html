@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー アップデート情報</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+      --mountain-ink: #2E2E2E;
+      --sea-mist-gray: #9CA3AF;
+      --morning-dew-blue: #3B5B78;
+      --roasted-amber: #B85C38;
+      --yuzu-leaf-yellow: #E9C46A;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      background-color: #f8f9fa;
+      color: var(--mountain-ink);
+      line-height: 1.4;
+      padding: 2rem;
+    }
+    
+    .infographic-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--morning-dew-blue), var(--mountain-ink));
+      color: white;
+      border-bottom: 3px solid var(--yuzu-leaf-yellow);
+    }
+    
+    .header-left {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(to right, white, var(--yuzu-leaf-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .title::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--roasted-amber);
+      border-radius: 3px;
+    }
+    
+    .subtitle {
+      font-size: 16px;
+      color: var(--yuzu-leaf-yellow);
+      margin-top: 0.5rem;
+    }
+    
+    .header-right {
+      text-align: right;
+    }
+    
+    .date {
+      font-family: 'Yomogi', cursive;
+      font-size: 18px;
+      color: white;
+    }
+    
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+      padding: 2rem;
+    }
+    
+    .update-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      border-left: 4px solid var(--morning-dew-blue);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .update-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--yuzu-leaf-yellow);
+      border-radius: 0 0 0 60px;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .card-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 22px;
+      color: var(--morning-dew-blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .card-title::before {
+      content: "📌";
+      margin-right: 8px;
+    }
+    
+    .version-tag {
+      display: inline-block;
+      background: var(--roasted-amber);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    
+    .date-tag {
+      display: inline-block;
+      background: var(--sea-mist-gray);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .feature-item::before {
+      content: "✅";
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    
+    .tech-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tech-item::before {
+      content: "⚙️";
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    
+    .summary-box {
+      grid-column: 1 / -1;
+      background: linear-gradient(to right, rgba(59, 91, 120, 0.1), rgba(233, 196, 106, 0.1));
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      border: 2px dashed var(--sea-mist-gray);
+    }
+    
+    .summary-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 20px;
+      color: var(--morning-dew-blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .summary-title::before {
+      content: "📝";
+      margin-right: 8px;
+    }
+    
+    .summary-content {
+      font-family: 'Zen Kurenaido', sans-serif;
+      line-height: 1.6;
+    }
+    
+    .connector {
+      position: absolute;
+      background: none;
+      border: 2px dashed var(--sea-mist-gray);
+      z-index: -1;
+    }
+    
+    .note-tag {
+      position: absolute;
+      background: var(--yuzu-leaf-yellow);
+      color: var(--mountain-ink);
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      font-size: 14px;
+      transform: rotate(-5deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--mountain-ink);
+      color: white;
+      font-size: 14px;
+    }
+    
+    .keyword {
+      font-weight: bold;
+      color: var(--roasted-amber);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .keyword::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: rgba(233, 196, 106, 0.3);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    
+    .hand-drawn-arrow {
+      position: absolute;
+      width: 80px;
+      height: 40px;
+      border-top: 2px solid var(--roasted-amber);
+      border-right: 2px solid var(--roasted-amber);
+      transform: rotate(45deg);
+      z-index: -1;
+      opacity: 0.6;
+    }
+    
+    @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .header-right {
+        margin-top: 1rem;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-container">
+    <div class="header">
+      <div class="header-left">
+        <h1 class="title">ボッチー アップデート履歴</h1>
+        <p class="subtitle">Discord Bot「ボッチー」の進化の記録</p>
+      </div>
+      <div class="header-right">
+        <p class="date">最終更新：2024年5月1日</p>
+      </div>
+    </div>
+    
+    <div class="content">
+      <!-- 初回リリース（1.0.0）カード -->
+      <div class="update-card">
+        <h2 class="card-title">初回リリース <span class="version-tag">v1.0.0</span> <span class="date-tag">2024年5月1日</span></h2>
+        <ul class="feature-list">
+          <li class="feature-item">AI応答機能の実装</li>
+          <li class="feature-item">Google検索連携の追加</li>
+          <li class="feature-item">Supabaseによる記憶管理</li>
+          <li class="feature-item">空気読み（盛り上がり度判定）機能の追加</li>
+        </ul>
+      </div>
+      
+      <!-- 初回リリースの技術ポイント -->
+      <div class="update-card">
+        <h2 class="card-title">技術ポイント <span class="version-tag">v1.0.0</span></h2>
+        <ul class="feature-list">
+          <li class="tech-item">OpenAI GPT-4o API連携</li>
+          <li class="tech-item">Google Custom Search API利用</li>
+          <li class="tech-item">Supabase DB連携設計</li>
+        </ul>
+        <div class="note-tag" style="bottom: 10px; right: 30px;">基盤技術⚙️</div>
+      </div>
+      
+      <!-- 初回リリースのサマリー -->
+      <div class="summary-box">
+        <h3 class="summary-title">初回リリース概要</h3>
+        <p class="summary-content">
+          ボッチーの最初のバージョンを公開しました。<span class="keyword">AIによる自然な会話</span>と
+          <span class="keyword">最新情報検索</span>、<span class="keyword">記憶管理</span>、
+          <span class="keyword">空気読み機能</span>を搭載しています。OpenAI GPT-4oを活用した高度な会話能力、Google検索連携による情報取得、Supabaseを使った記憶システムにより、ユーザーとの対話をより自然で有益なものにしています。
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>© 2024 ボッチープロジェクト - Discord Bot「ボッチー」開発チーム</p>
+    </div>
+  </div>
+</body>
+</html> 

@@ -3,204 +3,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチー | アップデート履歴</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>ボッチー アップデート履歴</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
-    body {
-      font-family: 'Yomogi', 'Zen Kurenaido', 'Kaisei Decol', 'Segoe UI', 'Meiryo', sans-serif;
-      background: linear-gradient(135deg, #eaf3ff 0%, #f8f9fa 100%);
+    
+    :root {
+      --color-yama: #2E2E2E;
+      --color-kiri: #9CA3AF;
+      --color-asatsuyu: #3B5B78;
+      --color-kohaku: #B85C38;
+      --color-yuzu: #E9C46A;
+    }
+    
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-    .header-bar {
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      background-color: #f8f9fa;
+      color: var(--color-yama);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      position: relative;
+    }
+    
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2em 2em 0.5em 2em;
-      background: rgba(255,255,255,0.7);
-      border-bottom: 2px dashed #3B5B78;
+      margin-bottom: 30px;
+      border-bottom: 2px dashed var(--color-kiri);
+      padding-bottom: 15px;
+    }
+    
+    .title {
       font-family: 'Kaisei Decol', serif;
+      font-size: 28px;
+      color: var(--color-asatsuyu);
+      position: relative;
     }
-    .header-title {
-      font-size: 32px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #3B5B78, #E9C46A);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    
+    .back-link {
+      color: var(--color-kohaku);
+      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      font-size: 16px;
     }
-    .header-date {
-      font-size: 14px;
-      color: #9CA3AF;
-      font-family: 'Zen Kurenaido', sans-serif;
+    
+    .back-link::before {
+      content: "←";
+      margin-right: 5px;
     }
-    .timeline {
-      position: relative;
-      margin: 2em auto 1em auto;
-      max-width: 900px;
-      padding-left: 2em;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, #3B5B78 0%, #E9C46A 100%);
-      border-radius: 2px;
-      z-index: 0;
-    }
-    .update-card {
-      position: relative;
-      background: rgba(255,255,255,0.92);
+    
+    .update-item {
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
-      box-shadow: 0 2px 12px #3B5B7822;
-      margin-bottom: 2.2em;
-      padding: 1.5em 1.5em 1.2em 3.5em;
-      border-left: 6px solid #E9C46A;
-      font-family: 'Yomogi', 'Zen Kurenaido', sans-serif;
-      transition: box-shadow 0.2s;
+      border-left: 4px solid var(--color-kohaku);
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
-    .update-card:hover {
-      box-shadow: 0 4px 24px #B85C3844;
-    }
-    .update-dot {
-      position: absolute;
-      left: -1.2em;
-      top: 1.5em;
-      width: 2.2em;
-      height: 2.2em;
-      background: #fff;
-      border: 4px solid #3B5B78;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5em;
-      color: #B85C38;
-      z-index: 2;
-      box-shadow: 0 1px 4px #3B5B7822;
-    }
+    
     .update-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 1em;
-      margin-bottom: 0.2em;
+      margin-bottom: 15px;
     }
-    .update-version {
-      font-size: 1.2em;
+    
+    .version-tag {
+      display: inline-block;
+      background-color: var(--color-kohaku);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 14px;
       font-weight: bold;
-      color: #3B5B78;
-      background: linear-gradient(90deg, #E9C46A 60%, #fff 100%);
-      border-radius: 4px;
-      padding: 0 0.5em;
-      margin-right: 0.5em;
     }
+    
     .update-date {
-      font-size: 0.95em;
-      color: #9CA3AF;
-      font-family: 'Zen Kurenaido', sans-serif;
-    }
-    .update-title {
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #B85C38;
-      margin-bottom: 0.2em;
-    }
-    .update-changes, .update-techpoints {
-      margin: 0.5em 0 0.5em 1.2em;
-      padding: 0;
-      color: #334155;
+      font-family: 'Yomogi', cursive;
+      color: var(--color-kiri);
       font-size: 14px;
     }
-    .update-changes li {
-      list-style: '📝 ' inside;
-      margin-bottom: 0.2em;
+    
+    .update-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 22px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 15px;
     }
-    .update-techpoints li {
-      list-style: '🔧 ' inside;
-      margin-bottom: 0.2em;
+    
+    .changes-list {
+      margin-bottom: 15px;
     }
+    
+    .changes-list h4 {
+      font-size: 16px;
+      color: var(--color-kohaku);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .changes-list h4::before {
+      content: "✨";
+      margin-right: 5px;
+    }
+    
+    .tech-list h4::before {
+      content: "⚙️";
+    }
+    
+    .changes-list ul {
+      list-style-type: none;
+      padding-left: 25px;
+    }
+    
+    .changes-list li {
+      margin-bottom: 5px;
+      position: relative;
+    }
+    
+    .changes-list li::before {
+      content: "•";
+      position: absolute;
+      left: -15px;
+      color: var(--color-kohaku);
+    }
+    
     .update-summary {
-      background: #f8f9fa;
+      background-color: rgba(233, 196, 106, 0.1);
+      padding: 15px;
       border-radius: 8px;
-      font-size: 13px;
-      color: #3B5B78;
-      padding: 0.7em 1em;
-      margin-top: 0.5em;
-      border-left: 4px solid #B85C38;
-      box-shadow: 0 1px 4px #3B5B7822;
-      font-family: 'Zen Kurenaido', 'Yomogi', sans-serif;
+      border-left: 3px solid var(--color-yuzu);
     }
-    .footer-bar {
-      text-align: right;
-      color: #9CA3AF;
-      font-size: 13px;
-      padding: 1.2em 2em 0.7em 2em;
-      font-family: 'Zen Kurenaido', sans-serif;
-      border-top: 2px dashed #3B5B78;
-      background: rgba(255,255,255,0.7);
-      margin-top: 2em;
+    
+    .summary-title {
+      font-size: 16px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
     }
-    @media (max-width: 600px) {
-      .header-bar, .footer-bar { padding: 1em 0.5em; }
-      .timeline { padding-left: 0.5em; }
-      .update-card { padding: 1em 0.5em 1em 2.5em; }
+    
+    .summary-title::before {
+      content: "📝";
+      margin-right: 5px;
+    }
+    
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--color-kiri);
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="header-bar">
-    <div class="header-title">🕒 アップデート履歴</div>
-    <div class="header-date">2025年4月 / Bocchy Project</div>
-    <nav style="margin-left:auto;">
-      <a href="index.html" style="color:#3B5B78;font-weight:bold;text-decoration:underline;margin-right:1em;">トップへ戻る</a>
-    </nav>
-  </div>
-  <main>
-    <div class="timeline" id="updates-list">
-      <!-- updates.jsで自動生成 -->
+  <div class="container">
+    <div class="header">
+      <h1 class="title">アップデート履歴</h1>
+      <a href="index.html" class="back-link">ホームに戻る</a>
     </div>
-  </main>
-  <div class="footer-bar">
-    出典：Bocchy Project / グラフィックレコーディング風デザイン by inforgraphic.mdc<br>
-    &copy; 2024 Bocchy Project
+    
+    <div class="update-item">
+      <div class="update-header">
+        <span class="version-tag">v1.0.0</span>
+        <span class="update-date">2024年5月1日</span>
+      </div>
+      <h2 class="update-title">初回リリース</h2>
+      
+      <div class="changes-list">
+        <h4>変更点</h4>
+        <ul>
+          <li>AI応答機能の実装</li>
+          <li>Google検索連携の追加</li>
+          <li>Supabaseによる記憶管理</li>
+          <li>空気読み（盛り上がり度判定）機能の追加</li>
+        </ul>
+      </div>
+      
+      <div class="changes-list tech-list">
+        <h4>技術ポイント</h4>
+        <ul>
+          <li>OpenAI GPT-4o API連携</li>
+          <li>Google Custom Search API利用</li>
+          <li>Supabase DB連携設計</li>
+        </ul>
+      </div>
+      
+      <div class="update-summary">
+        <h4 class="summary-title">概要</h4>
+        <p>ボッチーの最初のバージョンを公開しました。AIによる自然な会話と最新情報検索、記憶管理、空気読み機能を搭載しています。</p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>&copy; 2024 ボッチープロジェクト</p>
+    </div>
   </div>
-  <script>
-    // グラレコ風タイムライン自動生成
-    fetch('data/updates.json')
-      .then(res => res.json())
-      .then(data => {
-        const list = document.getElementById('updates-list');
-        if (!Array.isArray(data)) return;
-        data.forEach(update => {
-          const div = document.createElement('div');
-          div.className = 'update-card';
-          div.innerHTML = `
-            <div class="update-dot">📌</div>
-            <div class="update-header">
-              <span class="update-version">v${update.version}</span>
-              <span class="update-date">${update.date}</span>
-            </div>
-            <div class="update-title">${update.title}</div>
-            <ul class="update-changes">
-              ${(update.changes||[]).map(c => `<li>${c}</li>`).join('')}
-            </ul>
-            <details>
-              <summary style="color:#3B5B78;font-size:13px;cursor:pointer;">技術的ポイントを見る</summary>
-              <ul class="update-techpoints">
-                ${(update.techPoints||[]).map(tp => `<li>${tp}</li>`).join('')}
-              </ul>
-            </details>
-            <div class="update-summary">${update.summary}</div>
-          `;
-          list.appendChild(div);
-        });
-      });
-  </script>
 </body>
 </html> 

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー アップデート履歴</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+      --color-yama: #2E2E2E; /* 山の墨 */
+      --color-kiri: #9CA3AF; /* 海霧の灰 */
+      --color-asatsuyu: #3B5B78; /* 朝露の藍 */
+      --color-kohaku: #B85C38; /* 焙煎の琥珀 */
+      --color-yuzu: #E9C46A; /* 柚葉の黄 */
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      color: var(--color-yama);
+      background-color: #f8f9fa;
+      line-height: 1.4;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      border-bottom: 2px solid #f1f1f1;
+      background-color: rgba(233, 196, 106, 0.1);
+    }
+    
+    .title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(45deg, var(--color-asatsuyu), var(--color-kohaku));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .date {
+      font-family: 'Yomogi', cursive;
+      color: var(--color-kiri);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 30px;
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      border: 2px dashed var(--color-kiri);
+      height: 100%;
+      position: relative;
+    }
+    
+    .card-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 18px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid var(--color-asatsuyu);
+      padding-bottom: 5px;
+    }
+    
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    
+    .item::before {
+      content: "•";
+      color: var(--color-kohaku);
+      font-size: 20px;
+      line-height: 1;
+    }
+    
+    .item-text {
+      flex: 1;
+    }
+    
+    .summary-box {
+      grid-column: 1 / -1;
+      background-color: rgba(59, 91, 120, 0.1);
+      border-radius: 12px;
+      padding: 25px;
+      position: relative;
+      border: 2px solid var(--color-asatsuyu);
+    }
+    
+    .summary-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 20px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .summary-content {
+      font-size: 16px;
+      line-height: 1.6;
+      position: relative;
+    }
+    
+    .tag {
+      display: inline-block;
+      background-color: var(--color-yuzu);
+      color: var(--color-yama);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, var(--color-yuzu) 60%);
+      padding: 0 2px;
+    }
+    
+    .hand-arrow {
+      position: absolute;
+      color: var(--color-kohaku);
+      font-size: 24px;
+      transform: rotate(45deg);
+    }
+    
+    .footer {
+      padding: 15px 30px;
+      text-align: center;
+      border-top: 2px solid #f1f1f1;
+      color: var(--color-kiri);
+      font-size: 14px;
+    }
+    
+    /* 手書き風の装飾 */
+    .hand-drawn {
+      position: relative;
+    }
+    
+    .hand-drawn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e5e7eb' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.3;
+    }
+    
+    .version-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: var(--color-kohaku);
+      color: white;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transform: rotate(5deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .feature-icon {
+      color: var(--color-asatsuyu);
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container hand-drawn">
+    <div class="header">
+      <h1 class="title">�� ボッチーアップデート履歴</h1>
+      <div class="date">📅 2024年5月1日</div>
+    </div>
+    
+    <div class="grid">
+      <!-- 機能追加カード -->
+      <div class="card">
+        <div class="version-badge">v1.0.0</div>
+        <h2 class="card-title">✨ 機能追加</h2>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">🗣️</span>
+            <span class="highlight">AI応答機能</span>の実装
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">🔍</span>
+            <span class="highlight">Google検索連携</span>の追加
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">💾</span>
+            <span class="highlight">Supabaseによる記憶管理</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">😊</span>
+            <span class="highlight">空気読み（盛り上がり度判定）</span>機能の追加
+          </div>
+        </div>
+      </div>
+      
+      <!-- 技術ポイントカード -->
+      <div class="card">
+        <h2 class="card-title">🛠️ 技術ポイント</h2>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">🧠</span>
+            <span class="highlight">OpenAI GPT-4o API連携</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">🌐</span>
+            <span class="highlight">Google Custom Search API</span>利用
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">📊</span>
+            <span class="highlight">Supabase DB連携設計</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 開発情報カード -->
+      <div class="card">
+        <h2 class="card-title">📝 開発情報</h2>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">🚀</span>
+            <span class="highlight">初回リリース</span>
+            <span class="tag">New!</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">📆</span>
+            リリース日: <span class="highlight">2024年5月1日</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-text">
+            <span class="feature-icon">👨‍💻</span>
+            ボッチープロジェクト
+          </div>
+        </div>
+      </div>
+      
+      <!-- サマリーボックス -->
+      <div class="summary-box">
+        <h2 class="summary-title">📋 開発サマリー</h2>
+        <div class="summary-content">
+          ボッチーの<span class="highlight">最初のバージョン</span>を公開しました。<span class="highlight">AIによる自然な会話</span>と<span class="highlight">最新情報検索</span>、<span class="highlight">記憶管理</span>、<span class="highlight">空気読み機能</span>を搭載しています。OpenAI GPT-4oを活用した高度な会話能力、Google検索連携による情報取得、Supabaseを使った記憶システムにより、ユーザーとの対話をより自然で有益なものにしています。
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      &copy; 2024 ボッチープロジェクト
+    </div>
+  </div>
+</body>
+</html> 
