@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチー ロジックフロー | AI Discord Bot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    .flowchart-container {
+      margin: 40px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      position: relative;
+    }
+    
+    .flowchart-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 24px;
+      color: var(--asatsuyu-ai);
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px dashed var(--umi-kiri-hai);
+      padding-bottom: 10px;
+    }
+    
+    .flowchart-title::before {
+      content: "🔄";
+      margin-right: 10px;
+    }
+    
+    .flow-step {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background-color: var(--asatsuyu-ai);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 20px;
+      flex-shrink: 0;
+      font-family: 'Yomogi', cursive;
+    }
+    
+    .step-content {
+      flex: 1;
+      background: white;
+      border-left: 4px solid var(--houjikou);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: var(--houjikou);
+      font-family: 'Zen Kurenaido', sans-serif;
+    }
+    
+    .step-description {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .step-tech {
+      margin-top: 10px;
+      background: rgba(233, 196, 106, 0.2);
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    
+    .step-tech::before {
+      content: "🔧 技術ポイント: ";
+      font-weight: bold;
+    }
+    
+    .flow-arrow {
+      position: absolute;
+      left: 20px;
+      bottom: -20px;
+      width: 0;
+      height: 20px;
+      border-left: 2px dashed var(--umi-kiri-hai);
+    }
+    
+    .system-diagram {
+      margin: 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .diagram-title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 24px;
+      color: var(--asatsuyu-ai);
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .diagram-title::before {
+      content: "📊";
+      margin-right: 10px;
+    }
+    
+    .diagram {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .system-component {
+      position: absolute;
+      padding: 12px;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 140px;
+      text-align: center;
+      font-family: 'Zen Kurenaido', sans-serif;
+    }
+    
+    .system-bot {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--asatsuyu-ai);
+      color: white;
+      width: 160px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      z-index: 2;
+    }
+    
+    .system-user {
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2px solid var(--yuzuha-ki);
+    }
+    
+    .system-openai {
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      border: 2px solid var(--houjikou);
+    }
+    
+    .system-google {
+      bottom: 80px;
+      right: 120px;
+      border: 2px solid var(--umi-kiri-hai);
+    }
+    
+    .system-supabase {
+      bottom: 60px;
+      left: 120px;
+      border: 2px solid var(--yuzuha-ki);
+    }
+    
+    .system-discord {
+      top: 80px;
+      left: 120px;
+      border: 2px solid var(--umi-kiri-hai);
+    }
+    
+    .connector {
+      position: absolute;
+      z-index: 1;
+      background: transparent;
+      border-top: 2px dashed var(--umi-kiri-hai);
+      transform-origin: 0 0;
+    }
+    
+    .connector-label {
+      position: absolute;
+      background: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-family: 'Yomogi', cursive;
+    }
+    
+    .connector-details {
+      position: absolute;
+      cursor: pointer;
+      font-size: 16px;
+      background: var(--yuzuha-ki);
+      color: var(--yama-sumi);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .details-popup {
+      display: none;
+      position: absolute;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      font-size: 13px;
+      z-index: 10;
+    }
+    
+    .section-divider {
+      margin: 60px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .divider-line {
+      height: 2px;
+      background: var(--umi-kiri-hai);
+      opacity: 0.3;
+    }
+    
+    .divider-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 0 20px;
+      font-family: 'Kaisei Decol', serif;
+      color: var(--asatsuyu-ai);
+    }
+    
+    .notes {
+      border: 1px dashed var(--houjikou);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 30px 0;
+      position: relative;
+    }
+    
+    .notes::before {
+      content: "📝 開発ノート";
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: white;
+      padding: 0 10px;
+      color: var(--houjikou);
+      font-weight: bold;
+      font-family: 'Kaisei Decol', serif;
+    }
+    
+    @media (max-width: 768px) {
+      .system-diagram {
+        overflow: auto;
+      }
+      
+      .diagram {
+        min-width: 600px;
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">ボッチー ロジックフロー</h1>
+      <div class="date">2024年5月1日</div>
+    </div>
+    
+    <div class="nav-menu">
+      <a href="./index.html" class="nav-link"><span class="icon">🏠</span>ホーム</a>
+      <a href="./bocchy-updates.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
+      <a href="./rules.html" class="nav-link"><span class="icon">📜</span>ルール・マニフェスト</a>
+      <a href="#" class="nav-link active"><span class="icon">🔄</span>ロジックフロー</a>
+    </div>
+    
+    <div class="flowchart-container">
+      <h2 class="flowchart-title">メッセージ処理フロー</h2>
+      
+      <div class="flow-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 class="step-title">メッセージ受信</h3>
+          <p class="step-description">Discordユーザーからのメッセージを受信し、処理を開始します。メンションやプレフィックスによる呼びかけを検出します。</p>
+          <div class="step-tech">Discord.jsのonMessageイベントでメッセージをキャプチャ</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 class="step-title">会話履歴の読み込み</h3>
+          <p class="step-description">ユーザーの過去の会話履歴をSupabaseから取得し、文脈を理解するための準備をします。</p>
+          <div class="step-tech">Supabaseクエリで最新のN件の会話履歴を取得</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 class="step-title">AIによる意図理解</h3>
+          <p class="step-description">OpenAI GPT-4oを使ってユーザーの質問や指示の意図を分析します。内部的な処理方針を決定します。</p>
+          <div class="step-tech">OpenAI API呼び出しによるテキスト理解処理</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3 class="step-title">追加情報収集の判断</h3>
+          <p class="step-description">外部情報（検索結果等）が必要かどうかを判断します。質問の種類によって検索実行を決定します。</p>
+          <div class="step-tech">AIの判断結果に基づくJSON形式の処理タイプ識別</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3 class="step-title">Google検索連携（必要時）</h3>
+          <p class="step-description">最新情報や事実確認が必要な場合、Google Custom Search APIを使って情報を取得します。</p>
+          <div class="step-tech">検索キーワード最適化とAPI呼び出しによる情報取得</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3 class="step-title">空気読み判定</h3>
+          <p class="step-description">会話の流れや盛り上がり度、場の雰囲気を分析し、適切な対応レベルを判断します。</p>
+          <div class="step-tech">テキスト感情分析と会話文脈からの空気判定ロジック</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <h3 class="step-title">応答生成と送信</h3>
+          <p class="step-description">収集した情報とAIの判断に基づいて最適な応答を生成し、Discordに送信します。</p>
+          <div class="step-tech">OpenAI GPT-4oによる自然な応答文生成と送信</div>
+        </div>
+        <div class="flow-arrow"></div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">8</div>
+        <div class="step-content">
+          <h3 class="step-title">会話履歴の保存</h3>
+          <p class="step-description">ユーザーの入力と生成した応答をペアとして保存し、将来の会話の文脈理解に活用します。</p>
+          <div class="step-tech">Supabase DBへのトランザクション処理による記憶保存</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-text">システム連携図</div>
+    </div>
+    
+    <div class="system-diagram">
+      <h2 class="diagram-title">システム連携アーキテクチャ</h2>
+      
+      <div class="diagram">
+        <div class="system-component system-bot">
+          <div>ボッチー</div>
+          <small>Discord Bot</small>
+        </div>
+        
+        <div class="system-component system-user">
+          <div>ユーザー</div>
+          <small>Discord</small>
+        </div>
+        
+        <div class="system-component system-discord">
+          <div>Discord API</div>
+          <small>メッセージ通信</small>
+        </div>
+        
+        <div class="system-component system-openai">
+          <div>OpenAI</div>
+          <small>GPT-4o API</small>
+        </div>
+        
+        <div class="system-component system-google">
+          <div>Google</div>
+          <small>Custom Search API</small>
+        </div>
+        
+        <div class="system-component system-supabase">
+          <div>Supabase</div>
+          <small>記憶DB</small>
+        </div>
+        
+        <!-- コネクタ線 -->
+        <div class="connector" style="width: 80px; height: 2px; top: 60px; left: 50%; transform: translateX(-50%) rotate(270deg);"></div>
+        <div class="connector-label" style="top: 40px; left: 55%;">メッセージ</div>
+        
+        <div class="connector" style="width: 100px; height: 2px; top: 90px; left: 40%; transform: rotate(330deg);"></div>
+        <div class="connector-label" style="top: 70px; left: 35%;">API通信</div>
+        
+        <div class="connector" style="width: 150px; height: 2px; top: 50%; left: 55%; transform: translateY(-50%);"></div>
+        <div class="connector-label" style="top: 48%; left: 65%;">AI処理</div>
+        
+        <div class="connector" style="width: 130px; height: 2px; top: 60%; left: 50%; transform: translate(-30%, 30%) rotate(45deg);"></div>
+        <div class="connector-label" style="top: 65%; right: 43%;">検索</div>
+        
+        <div class="connector" style="width: 130px; height: 2px; top: 60%; left: 50%; transform: translate(-70%, 30%) rotate(135deg);"></div>
+        <div class="connector-label" style="top: 65%; left: 40%;">記憶保存</div>
+        
+        <!-- 詳細情報ポップアップ -->
+        <div class="connector-details" style="top: 85px; right: 160px;">?</div>
+        <div class="details-popup">Discord.jsを使用したボットとDiscord APIの連携。メッセージのリッスンとレスポンス送信処理の実装。</div>
+        
+        <div class="connector-details" style="top: 190px; right: 70px;">?</div>
+        <div class="details-popup">OpenAI GPT-4o APIを使用した高度な自然言語処理。テキスト生成と理解のための設計。</div>
+        
+        <div class="connector-details" style="bottom: 130px; right: 120px;">?</div>
+        <div class="details-popup">Google Custom Search APIで最新情報の検索と取得。検索キーワードの最適化処理を含む。</div>
+        
+        <div class="connector-details" style="bottom: 110px; left: 140px;">?</div>
+        <div class="details-popup">Supabaseを使った会話履歴の保存と取得。効率的なクエリ設計と構造化データ管理。</div>
+      </div>
+    </div>
+    
+    <div class="notes">
+      <p>ボッチーのロジックフローは、ユーザー入力を起点として、AIによる意図理解、必要に応じた外部情報収集、そして最適な応答生成という一連の流れで構成されています。システム連携では、OpenAI GPT-4o APIによる自然言語処理能力を中心に、Google検索連携による最新情報取得と、Supabase DBによる記憶管理という三本柱で実現しています。</p>
+      <p>特に注力している点は「空気読み判定」機能で、会話の流れや文脈、ユーザーの感情を分析することで、より自然で親しみやすい対話を実現しています。今後のアップデートでは、画像理解機能や音声認識機能の拡張を予定しています。</p>
+    </div>
+    
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="deco-circle deco-circle-3"></div>
+    
+    <div class="footer">
+      <p>&copy; 2024 ボッチープロジェクト All Rights Reserved.</p>
+    </div>
+  </div>
+  
+  <script>
+    // 詳細情報ポップアップの表示制御
+    document.addEventListener('DOMContentLoaded', function() {
+      const detailButtons = document.querySelectorAll('.connector-details');
+      const popups = document.querySelectorAll('.details-popup');
+      
+      detailButtons.forEach((button, index) => {
+        button.addEventListener('mouseenter', () => {
+          popups[index].style.display = 'block';
+          popups[index].style.left = (button.offsetLeft + button.offsetWidth + 5) + 'px';
+          popups[index].style.top = (button.offsetTop - 10) + 'px';
+        });
+        
+        button.addEventListener('mouseleave', () => {
+          popups[index].style.display = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

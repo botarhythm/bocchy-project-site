@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボッチーアップデート情報</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+      --color-yama-sumi: #2E2E2E;
+      --color-umigiri: #9CA3AF;
+      --color-asatsuyu: #3B5B78;
+      --color-houjikou: #B85C38;
+      --color-yuzuha: #E9C46A;
+    }
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: var(--color-yama-sumi);
+      line-height: 1.4;
+    }
+    
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 2px dashed var(--color-asatsuyu);
+      padding-bottom: 15px;
+    }
+    
+    .title {
+      font-family: 'Kaisei Decol', serif;
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(45deg, var(--color-houjikou), var(--color-asatsuyu));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      position: relative;
+    }
+    
+    .date {
+      font-family: 'Yomogi', cursive;
+      font-size: 16px;
+      color: var(--color-umigiri);
+      border: 1px dashed var(--color-umigiri);
+      padding: 5px 10px;
+      border-radius: 8px;
+      transform: rotate(2deg);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      width: 40px;
+      height: 10px;
+      background-color: var(--color-yuzuha);
+      border-radius: 5px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--color-asatsuyu);
+      padding-bottom: 5px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title::before {
+      content: '📌';
+      margin-right: 5px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding-left: 10px;
+    }
+    
+    .feature-item {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    .feature-item::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-houjikou);
+      font-weight: bold;
+    }
+    
+    .version-tag {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      background-color: var(--color-yuzuha);
+      color: var(--color-yama-sumi);
+      font-family: 'Yomogi', cursive;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      transform: rotate(3deg);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .summary-box {
+      grid-column: span 3;
+      background-color: rgba(59, 91, 120, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      border-left: 5px solid var(--color-asatsuyu);
+    }
+    
+    .summary-title {
+      font-size: 18px;
+      color: var(--color-asatsuyu);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .summary-title::before {
+      content: '💭';
+      margin-right: 5px;
+    }
+    
+    .summary-content {
+      font-size: 16px;
+      line-height: 1.6;
+      font-family: 'Kaisei Decol', serif;
+    }
+    
+    .arrow {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border-right: 3px dashed var(--color-umigiri);
+      border-bottom: 3px dashed var(--color-umigiri);
+      transform: rotate(-45deg);
+    }
+    
+    .deco-circle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(233, 196, 106, 0.1);
+      z-index: -1;
+    }
+    
+    .deco-circle:nth-child(1) {
+      top: 10%;
+      left: 5%;
+    }
+    
+    .deco-circle:nth-child(2) {
+      bottom: 20%;
+      right: 10%;
+      background-color: rgba(184, 92, 56, 0.1);
+    }
+    
+    .icon-lg {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+    
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-umigiri);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="deco-circle"></div>
+    <div class="deco-circle"></div>
+    
+    <header class="header">
+      <h1 class="title">ボッチー アップデート情報</h1>
+      <div class="date">2025年4月29日</div>
+    </header>
+    
+    <div class="grid">
+      <div class="card">
+        <div class="version-tag">v2.1.0</div>
+        <h2 class="section-title">機能追加 📱</h2>
+        <ul class="feature-list">
+          <li class="feature-item">音声認識機能の強化</li>
+          <li class="feature-item">マルチモーダル対応（画像理解）</li>
+          <li class="feature-item">ユーザー好みの学習システム</li>
+          <li class="feature-item">プラグイン連携機能の拡張</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h2 class="section-title">技術ポイント 🔧</h2>
+        <ul class="feature-list">
+          <li class="feature-item">OpenAI GPT-5 API連携</li>
+          <li class="feature-item">画像認識モデル統合</li>
+          <li class="feature-item">Vector DB最適化</li>
+          <li class="feature-item">レスポンス速度50%向上</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h2 class="section-title">開発情報 🚀</h2>
+        <ul class="feature-list">
+          <li class="feature-item">メジャーアップデート</li>
+          <li class="feature-item">2025年4月29日公開</li>
+          <li class="feature-item">ユーザーフィードバック反映</li>
+          <li class="feature-item">開発者API公開</li>
+        </ul>
+      </div>
+      
+      <div class="summary-box">
+        <h2 class="summary-title">開発サマリー</h2>
+        <p class="summary-content">
+          ボッチーの機能を大幅に強化しました。マルチモーダル対応で画像理解が可能になり、音声認識精度が向上。ユーザーの好みを学習して応答をカスタマイズし、外部サービスとの連携も拡張しています。また、GPT-5採用による理解力と表現力の向上、Vectorデータベースの最適化によりレスポンス速度が50%向上しました。
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      © 2025 ボッチー - AIアシスタントボット
+    </div>
+  </div>
+</body>
+</html> 
