@@ -3,448 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチー Discord Bot | AI Discord Bot</title>
+  <title>ボッチー Discord Bot | インフォグラフィック</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
   <link rel="stylesheet" href="./assets/style.css">
-  <style>
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: 10px;
-      width: 40px;
-      height: 10px;
-      background-color: var(--yuha-ki);
-      border-radius: 5px;
-    }
-    
-    .section-title::before {
-      content: '📌';
-      margin-right: 5px;
-    }
-    
-    .version-tag {
-      position: absolute;
-      top: -10px;
-      right: 10px;
-      background-color: var(--yuha-ki);
-      color: var(--yama-sumi);
-      font-family: 'Yomogi', cursive;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 14px;
-      transform: rotate(3deg);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    
-    .summary-box {
-      grid-column: span 3;
-      background-color: rgba(59, 91, 120, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      position: relative;
-      border-left: 5px solid var(--asa-tsuyu-ai);
-    }
-    
-    .summary-title {
-      font-size: 18px;
-      color: var(--asa-tsuyu-ai);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .summary-title::before {
-      content: '💭';
-      margin-right: 5px;
-    }
-    
-    .summary-content {
-      font-size: 16px;
-      line-height: 1.6;
-      font-family: 'Kaisei Decol', serif;
-    }
-    
-    .flow-section {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px dashed var(--umi-kiri-hai);
-    }
-    
-    .flow-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 24px;
-      color: var(--asa-tsuyu-ai);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .flow-title::before {
-      content: "🔄";
-      margin-right: 10px;
-    }
-    
-    .flowchart {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    
-    .flow-step {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .flow-node {
-      padding: 10px 15px;
-      border-radius: 8px;
-      background: white;
-      border: 2px solid var(--asa-tsuyu-ai);
-      width: 200px;
-      text-align: center;
-      position: relative;
-      font-family: 'Yomogi', cursive;
-    }
-    
-    .flow-arrow {
-      width: 0;
-      height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 15px solid var(--umi-kiri-hai);
-      margin: 0 auto 5px auto;
-    }
-    
-    .flow-explanation {
-      margin-left: 20px;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 10px;
-      border-radius: 8px;
-      border-left: 3px solid var(--houjikou);
-      flex: 1;
-    }
-    
-    .mindmap {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      margin: 40px 0;
-      min-height: 500px;
-    }
-    
-    .mindmap-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--asa-tsuyu-ai);
-      color: white;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-weight: bold;
-      font-family: 'Yomogi', cursive;
-      font-size: 18px;
-      z-index: 2;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .mindmap-branch {
-      position: absolute;
-      width: 180px;
-      padding: 12px;
-      background: white;
-      border: 2px solid var(--houjikou);
-      border-radius: 10px;
-      text-align: center;
-      font-family: 'Zen Kurenaido', sans-serif;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    
-    .mindmap-branch.branch1 {
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .mindmap-branch.branch2 {
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-    }
-    
-    .mindmap-branch.branch3 {
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .mindmap-branch.branch4 {
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-    }
-    
-    .mindmap-branch.branch5 {
-      top: 130px;
-      left: 25%;
-    }
-    
-    .mindmap-connector {
-      position: absolute;
-      background: transparent;
-      border-top: 2px dashed var(--umi-kiri-hai);
-      transform-origin: 0 0;
-      z-index: 1;
-    }
-    
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .summary-box {
-        grid-column: 1;
-      }
-      
-      .flow-step {
-        flex-direction: column;
-        width: 100%;
-      }
-      
-      .flow-explanation {
-        margin-left: 0;
-        margin-top: 10px;
-      }
-      
-      .mindmap {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .mindmap-branch {
-        position: relative;
-        top: unset;
-        left: unset;
-        right: unset;
-        bottom: unset;
-        transform: none;
-        margin-bottom: 15px;
-        width: 80%;
-      }
-      
-      .mindmap-center {
-        position: relative;
-        transform: none;
-        margin: 20px 0;
-      }
-      
-      .mindmap-connector {
-        display: none;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
+    <!-- ヘッダー -->
     <header class="header">
       <h1 class="title">ボッチー Discord Bot</h1>
       <p class="date">最終更新: 2025-04-29 10:00</p>
     </header>
-    
-    <div class="nav-menu">
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu">
       <a href="index.html" class="nav-link active"><span class="icon">🏠</span>ホーム</a>
       <a href="./update-history.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
       <a href="./rules.html" class="nav-link"><span class="icon">📜</span>ルール・マニフェスト</a>
-      <a href="./logic-flow.html" class="nav-link"><span class="icon">🔄</span>ロジックフロー</a>
-    </div>
-    
+      <a href="./logic-flow.html" class="nav-link"><span class="icon">🔄</span>論理フロー</a>
+    </nav>
+
+    <!-- プロジェクト概要 -->
     <div class="intro-section">
       <p class="intro-text">
-        <span class="highlight">ボッチー</span>は音声認識機能を強化し、マルチモーダル対応で画像理解が可能なAI搭載Discord Botです。
-        ユーザーの好みを学習し、プラグイン連携機能も拡張。GPT-5 API連携やVector DB最適化によりレスポンス速度が50%向上します。
+        <span class="highlight">ボッチー</span>は音声認識を強化し、マルチモーダル対応で画像理解が可能なAI搭載Discord Botです。GPT-5連携やVector DB最適化により、
+        レスポンス速度が50%向上。ユーザーの好みを学習し、プラグイン連携機能も継続的に進化します。
       </p>
     </div>
-    
+
+    <!-- 主要機能 -->
     <div class="feature-grid">
       <div class="feature-card">
         <div class="card-header">
-          <h2 class="card-title">AI応答機能</h2>
+          <h2 class="card-title">AI応答</h2>
           <div class="card-icon">🤖</div>
         </div>
         <ul class="feature-list">
-          <li>OpenAI GPT-4oによる高度な対話能力</li>
-          <li>自然な会話と質問への的確な回答</li>
-          <li>文脈を理解した継続的な会話</li>
-          <li>個性的かつ親しみやすい応答スタイル</li>
+          <li>OpenAI GPT-5 API連携で高度な対話</li>
+          <li>文脈を理解した自然な返答</li>
+          <li>カスタマイズ可能なスタイル</li>
+          <li>パフォーマンス最適化</li>
         </ul>
       </div>
-      
       <div class="feature-card">
         <div class="card-header">
           <h2 class="card-title">検索連携</h2>
           <div class="card-icon">🔍</div>
         </div>
         <ul class="feature-list">
-          <li>Google Custom Search連携による情報検索</li>
-          <li>最新の情報へのアクセスと提供</li>
-          <li>検索結果を元にした回答の生成</li>
-          <li>質問に応じた検索ワード最適化</li>
+          <li>Google Custom Search API利用</li>
+          <li>最新情報への即時アクセス</li>
+          <li>回答生成の精度向上</li>
+          <li>検索ワード最適化</li>
         </ul>
       </div>
-      
       <div class="feature-card">
         <div class="card-header">
           <h2 class="card-title">記憶管理</h2>
           <div class="card-icon">💾</div>
         </div>
         <ul class="feature-list">
-          <li>Supabaseによる会話履歴の保持</li>
-          <li>ユーザーごとの対話記録と参照</li>
-          <li>コンテキスト維持による自然な会話</li>
-          <li>過去の情報を活用した対話品質向上</li>
+          <li>Supabaseによる会話ログ保存</li>
+          <li>ユーザープロファイル化</li>
+          <li>文脈維持の継続対話</li>
+          <li>長期的な関係構築</li>
         </ul>
       </div>
-      
       <div class="feature-card">
         <div class="card-header">
-          <h2 class="card-title">空気読み機能</h2>
+          <h2 class="card-title">空気読み</h2>
           <div class="card-icon">🎭</div>
         </div>
         <ul class="feature-list">
-          <li>会話の文脈や盛り上がりの検出</li>
-          <li>状況に応じた介入度の自動調整</li>
-          <li>感情分析による適切な対応</li>
-          <li>グループ会話のリズムを尊重</li>
+          <li>盛り上がり判定と介入</li>
+          <li>感情分析による適切応答</li>
+          <li>グループ会話のリズム尊重</li>
+          <li>自動調整機能搭載</li>
         </ul>
       </div>
-      
       <div class="feature-card">
         <div class="card-header">
           <h2 class="card-title">頻繁な進化</h2>
           <div class="card-icon">⚡️</div>
         </div>
         <ul class="feature-list">
-          <li>新機能追加とバグ修正を迅速に反映</li>
-          <li>ユーザー要望に基づく機能改善</li>
-          <li>モデルとシステムのパフォーマンス向上</li>
-          <li>継続的なチューニングと最適化</li>
+          <li>迅速な機能追加とバグ修正</li>
+          <li>ユーザー要望に即対応</li>
+          <li>パフォーマンスチューニング</li>
+          <li>継続的最適化</li>
         </ul>
       </div>
     </div>
-    
-    <div class="flow-section">
-      <h2 class="section-title">自然対話処理フロー</h2>
-      
-      <div class="flow-chart">
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>ユーザー入力</h3>
-            <p>Discordでのメッセージ</p>
-          </div>
-          <div class="step-arrow">↓</div>
-        </div>
-        
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>意図理解</h3>
-            <p>AIによる質問・指示の分析</p>
-          </div>
-          <div class="step-arrow">↓</div>
-        </div>
-        
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>情報収集</h3>
-            <p>必要に応じた検索実行</p>
-          </div>
-          <div class="step-arrow">↓</div>
-        </div>
-        
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>記憶参照</h3>
-            <p>過去の会話文脈を取得</p>
-          </div>
-          <div class="step-arrow">↓</div>
-        </div>
-        
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>応答生成</h3>
-            <p>GPT-4oによる回答作成</p>
-          </div>
-          <div class="step-arrow">↓</div>
-        </div>
-        
-        <div class="flow-step">
-          <div class="step-content">
-            <h3>記憶保存</h3>
-            <p>会話内容をDBに保存</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+
+    <!-- 要約 -->
     <div class="summary-box">
       <h2 class="summary-title">プロジェクト概要</h2>
       <div class="summary-content">
         <p><span class="tag">バージョン</span>v2.1.0</p>
         <p><span class="tag">公開日</span>2025-04-29 10:00</p>
-        <p><span class="tag">開発</span>ボッチープロジェクト</p>
+        <p><span class="tag">開発</span>Bocchyプロジェクト</p>
         <p class="summary-text">
-          ボッチーの機能を大幅に強化しました。マルチモーダル対応で画像理解が可能になり、音声認識機能を強化。
-          ユーザーの好みを学習して応答をカスタマイズし、外部サービスとの連携も拡張しました。
-          また、GPT-5採用による理解力と表現力の向上、Vectorデータベースの最適化によりレスポンス速度が50%向上し、より高速で高度なインタラクションを実現します。
+          マルチモーダル対応や音声認識強化により、対話の表現力と速度を向上。GPT-5 API連携とVector DB最適化で
+          高精度かつ高速な応答を実現します。
         </p>
       </div>
     </div>
-    
-    <div class="tech-section">
-      <h2 class="section-title">主要技術</h2>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <div class="tech-icon">🧠</div>
-          <div class="tech-name">OpenAI<br>GPT-4o API</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">🔎</div>
-          <div class="tech-name">Google<br>Custom Search</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">🗄️</div>
-          <div class="tech-name">Supabase<br>Database</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">🤝</div>
-          <div class="tech-name">Discord.js<br>API</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="deco-circle deco-circle-1"></div>
-    <div class="deco-circle deco-circle-2"></div>
-    <div class="deco-circle deco-circle-3"></div>
-    
-    <div class="footer">
-      <p>&copy; 2024 ボッチープロジェクト All Rights Reserved.</p>
-    </div>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <p>&copy; 2025 Bocchyプロジェクト All Rights Reserved.</p>
+    </footer>
   </div>
 </body>
 </html> 
