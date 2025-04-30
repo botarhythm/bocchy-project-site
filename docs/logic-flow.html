@@ -13,14 +13,13 @@
     <!-- ヘッダー -->
     <header class="header">
       <h1 class="title">Bocchy Discord Bot の論理フロー</h1>
-      <p class="date">最終更新: 2024-05-01 09:00</p>
+      <p class="date">最終更新: 2025-04-29 10:00</p>
     </header>
 
     <!-- ナビゲーション -->
     <nav class="nav-menu">
       <a href="index.html" class="nav-link">🏠 ホーム</a>
       <a href="update-history.html" class="nav-link">🕒 更新履歴</a>
-      <a href="rules.html" class="nav-link">📜 ルール・マニフェスト</a>
       <a href="logic-flow.html" class="nav-link active">🔄 論理フロー</a>
     </nav>
 
@@ -32,10 +31,10 @@
 
           <!-- ステップ1 -->
           <div class="flow-step">
-            <div class="flow-step-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="flow-step-icon"><i class="fas fa-comment"></i></div>
             <div class="flow-step-content">
               <h3 class="flow-step-title">ユーザー入力</h3>
-              <p class="flow-step-description">Discordでのテキストまたは音声入力を受信</p>
+              <p class="flow-step-description">Discordでのテキスト入力を受信</p>
               <div class="flow-step-details">
                 <ul>
                   <li>Discord.jsのイベントリスナーがメッセージを捕捉</li>
@@ -82,7 +81,7 @@
             <div class="flow-step-icon"><i class="fas fa-comments"></i></div>
             <div class="flow-step-content">
               <h3 class="flow-step-title">応答生成 (llm.respond)</h3>
-              <p class="flow-step-description">OpenAI GPT-4o/5 APIで自然な応答を生成</p>
+              <p class="flow-step-description">OpenAI APIで自然な応答を生成</p>
               <div class="flow-step-details">
                 <ul>
                   <li>文脈と検索結果をプロンプトに組み込み</li>
@@ -113,7 +112,7 @@
 
     <!-- フッター -->
     <footer class="footer">
-      <p>&copy; 2024 Bocchyプロジェクト All Rights Reserved.</p>
+      <p>&copy; 2025 Bocchyプロジェクト All Rights Reserved.</p>
     </footer>
   </div>
 </body>
