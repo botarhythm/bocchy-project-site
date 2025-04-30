@@ -3,289 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチー アップデート履歴 | AI Discord Bot</title>
+  <title>更新履歴 | Bocchy Discord Bot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
   <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .update-container {
-      max-width: 900px;
-      margin: 30px auto;
-    }
-    
-    .update-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      margin-bottom: 30px;
-      overflow: hidden;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-      border-top: 5px solid var(--asa-tsuyu-ai);
-      position: relative;
-    }
-    
-    .update-header {
-      padding: 20px 25px;
-      background: rgba(59, 91, 120, 0.05);
-      border-bottom: 1px dashed var(--umi-kiri-hai);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    
-    .update-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .update-title h2 {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 24px;
-      margin: 0;
-      color: var(--yama-sumi);
-    }
-    
-    .version-badge {
-      background: var(--asa-tsuyu-ai);
-      color: white;
-      font-size: 14px;
-      padding: 4px 10px;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-    
-    .update-date {
-      color: var(--umi-kiri-hai);
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .update-content {
-      padding: 25px;
-    }
-    
-    .update-summary {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid rgba(156, 163, 175, 0.2);
-      color: var(--yama-sumi);
-    }
-    
-    .update-list-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 18px;
-      color: var(--asa-tsuyu-ai);
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .update-list {
-      margin-bottom: 25px;
-    }
-    
-    .update-item {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-    
-    .update-item:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 6px;
-      width: 16px;
-      height: 16px;
-      background: var(--yuha-ki);
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .update-item:after {
-      content: '✓';
-      position: absolute;
-      left: 4px;
-      top: 3px;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-    }
-    
-    .update-tech {
-      background: rgba(233, 196, 106, 0.1);
-      border-radius: 12px;
-      padding: 15px 20px;
-    }
-    
-    .update-tech .update-item:before {
-      background: var(--housen-kohaku);
-    }
-    
-    .future-update {
-      border-top: 5px solid var(--housen-kohaku);
-    }
-    
-    .future-update .version-badge {
-      background: var(--housen-kohaku);
-    }
-    
-    .first-release {
-      border-top: 5px solid var(--yuha-ki);
-    }
-    
-    .first-release .version-badge {
-      background: var(--yuha-ki);
-    }
-    
-    .release-note {
-      position: absolute;
-      top: -12px;
-      right: 25px;
-      background: var(--yuha-ki);
-      color: white;
-      font-size: 12px;
-      padding: 3px 10px;
-      border-radius: 3px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    
-    @media screen and (max-width: 768px) {
-      .update-container {
-        padding: 0 15px;
-      }
-      
-      .update-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      
-      .update-date {
-        font-size: 14px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
-    <!-- 装飾要素 -->
-    <div class="deco-circle deco-circle-1"></div>
-    <div class="deco-circle deco-circle-2"></div>
-    <div class="deco-circle deco-circle-3"></div>
-
     <!-- ヘッダー -->
     <header class="header">
-      <h1 class="title">ボッチーのアップデート履歴</h1>
-      <p class="date">最終更新: 2025-04-29 10:00</p>
+      <h1 class="title">Bocchy Discord Bot の更新履歴</h1>
+      <p class="date">最終更新: 2024-05-01 09:00</p>
     </header>
-
-    <!-- ナビゲーションメニュー -->
+    <!-- ナビゲーション -->
     <nav class="nav-menu">
-      <a href="index.html" class="nav-link">
-        <i class="fas fa-home icon"></i> ホーム
-      </a>
-      <a href="update-history.html" class="nav-link active">
-        <i class="fas fa-history icon"></i> アップデート履歴
-      </a>
-      <a href="rules.html" class="nav-link">
-        <i class="fas fa-scroll icon"></i> ルール
-      </a>
-      <a href="logic-flow.html" class="nav-link">
-        <i class="fas fa-project-diagram icon"></i> 論理フロー
-      </a>
+      <a href="index.html" class="nav-link">🏠 ホーム</a>
+      <a href="update-history.html" class="nav-link active">🕒 更新履歴</a>
+      <a href="rules.html" class="nav-link">📜 ルール・マニフェスト</a>
+      <a href="logic-flow.html" class="nav-link">🔄 論理フロー</a>
     </nav>
-
-    <!-- アップデート履歴コンテンツ -->
-    <div class="update-container">
-      <!-- 将来のアップデート -->
-      <div class="update-card">
-        <div class="update-header">
-          <div class="update-title">
-            <span class="version-badge">v2.1.0</span>
-            <h2>メジャーアップデート</h2>
-          </div>
-          <div class="update-date">
-            <i class="far fa-calendar-alt"></i> 2025-04-29 10:00
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="update-summary">
-            音声認識の向上、画像理解機能の追加、ユーザー嗜好学習システムの実装など、ボッチーの機能を大幅に拡張し、より自然で高度なインタラクションを実現するアップデートです。
-          </div>
-  
-          <div class="update-list">
-            <h3 class="update-list-title">
-              <i class="fas fa-plus-circle"></i> 主な変更点
-            </h3>
-            <div class="update-item">音声認識機能の強化</div>
-            <div class="update-item">マルチモーダル対応（画像理解）</div>
-            <div class="update-item">ユーザー好みの学習システム</div>
-            <div class="update-item">プラグイン連携機能の拡張</div>
-          </div>
-  
-          <div class="update-tech">
-            <h3 class="update-list-title">
-              <i class="fas fa-code"></i> 技術ポイント
-            </h3>
-            <div class="update-item">OpenAI GPT-5 API連携</div>
-            <div class="update-item">画像認識モデル統合</div>
-            <div class="update-item">Vector DB最適化</div>
-            <div class="update-item">レスポンス速度50%向上</div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 初期リリース -->
-      <div class="update-card first-release">
-        <div class="release-note">初回リリース</div>
-        <div class="update-header">
-          <div class="update-title">
-            <span class="version-badge">v1.0.0</span>
-            <h2>初回リリース</h2>
-          </div>
-          <div class="update-date">
-            <i class="far fa-calendar-alt"></i> 2024-05-01 09:00
-          </div>
-        </div>
-        <div class="update-content">
-          <div class="update-summary">
-            AI応答機能、Google検索連携、Supabaseを活用した記憶管理システム、「空気を読む」機能を備えた初期バージョンです。自然な会話と有用な情報提供を実現します。
-          </div>
-  
-          <div class="update-list">
-            <h3 class="update-list-title">
-              <i class="fas fa-plus-circle"></i> 主な機能
-            </h3>
-            <div class="update-item">AI応答機能の実装</div>
-            <div class="update-item">Google検索連携の追加</div>
-            <div class="update-item">Supabaseによる記憶管理</div>
-            <div class="update-item">空気読み（盛り上がり度判定）機能の追加</div>
-          </div>
-  
-          <div class="update-tech">
-            <h3 class="update-list-title">
-              <i class="fas fa-code"></i> 技術ポイント
-            </h3>
-            <div class="update-item">OpenAI GPT-4o API連携</div>
-            <div class="update-item">Google Custom Search API利用</div>
-            <div class="update-item">Supabase DB連携設計</div>
-          </div>
-        </div>
+    <!-- 更新カード -->
+    <div class="grid">
+      <div class="card">
+        <div class="version-tag">v1.0.0</div>
+        <h3 class="section-title">初回リリース</h3>
+        <p class="date">2024-05-01 09:00</p>
+        <ul>
+          <li>AI応答機能の実装</li>
+          <li>Google検索連携の追加</li>
+          <li>Supabaseによる記憶管理</li>
+          <li>空気読み（盛り上がり度判定）機能の追加</li>
+        </ul>
+        <details>
+          <summary>技術的ポイント</summary>
+          <ul>
+            <li>OpenAI GPT-4o API連携</li>
+            <li>Google Custom Search API利用</li>
+            <li>Supabase DB連携設計</li>
+          </ul>
+        </details>
+        <p>bocchy-discord-botの最初のリリースです。自然言語応答、検索連携、会話の記憶管理、空気読み機能を搭載しています。</p>
       </div>
     </div>
-
     <!-- フッター -->
     <footer class="footer">
-      <p>&copy; 2025 ボッチープロジェクト</p>
+      <p>&copy; 2024 Bocchyプロジェクト All Rights Reserved.</p>
     </footer>
   </div>
 </body>

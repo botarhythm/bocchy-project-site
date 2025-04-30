@@ -3,270 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチー プロジェクトルール | AI Discord Bot</title>
+  <title>ルール・マニフェスト | Bocchy Discord Bot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
   <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .rules-container {
-      max-width: 900px;
-      margin: 30px auto;
-    }
-    
-    .rule-section {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-      border-left: 5px solid var(--asa-tsuyu-ai);
-    }
-    
-    .rule-section:nth-child(2) {
-      border-left-color: var(--houjikou);
-    }
-    
-    .rule-section:nth-child(3) {
-      border-left-color: var(--yuha-ki);
-    }
-    
-    .rule-section:nth-child(4) {
-      border-left-color: var(--umi-kiri-hai);
-    }
-    
-    .rule-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 24px;
-      color: var(--asa-tsuyu-ai);
-      margin-top: 0;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 1px dashed var(--umi-kiri-hai);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .rule-section:nth-child(2) .rule-title {
-      color: var(--houjikou);
-    }
-    
-    .rule-section:nth-child(3) .rule-title {
-      color: var(--yuha-ki);
-    }
-    
-    .rule-section:nth-child(4) .rule-title {
-      color: var(--umi-kiri-hai);
-    }
-    
-    .rule-list {
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .rule-list li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-    
-    .rule-list li:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      background: var(--asa-tsuyu-ai);
-      border-radius: 50%;
-    }
-    
-    .rule-section:nth-child(2) .rule-list li:before {
-      background: var(--houjikou);
-    }
-    
-    .rule-section:nth-child(3) .rule-list li:before {
-      background: var(--yuha-ki);
-    }
-    
-    .rule-section:nth-child(4) .rule-list li:before {
-      background: var(--umi-kiri-hai);
-    }
-    
-    .rule-subsection {
-      margin-top: 25px;
-      margin-bottom: 15px;
-      font-family: 'Kaisei Decol', serif;
-      font-size: 18px;
-      color: var(--yama-sumi);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .code-block {
-      background: rgba(46, 46, 46, 0.04);
-      border-radius: 8px;
-      padding: 15px 20px;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.5;
-      overflow-x: auto;
-      margin: 15px 0;
-      border-left: 3px solid var(--asa-tsuyu-ai);
-    }
-    
-    .rule-section:nth-child(2) .code-block {
-      border-left-color: var(--houjikou);
-    }
-    
-    .rule-section:nth-child(3) .code-block {
-      border-left-color: var(--yuha-ki);
-    }
-    
-    .rule-section:nth-child(4) .code-block {
-      border-left-color: var(--umi-kiri-hai);
-    }
-    
-    @media screen and (max-width: 768px) {
-      .rules-container {
-        padding: 0 15px;
-      }
-      
-      .rule-section {
-        padding: 20px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
-    <!-- 装飾要素 -->
-    <div class="deco-circle deco-circle-1"></div>
-    <div class="deco-circle deco-circle-2"></div>
-    <div class="deco-circle deco-circle-3"></div>
-
     <!-- ヘッダー -->
     <header class="header">
-      <h1 class="title">ボッチープロジェクトのルール</h1>
-      <p class="date">最終更新: 2025-04-29 10:00</p>
+      <h1 class="title">Bocchy Discord Bot のルール・マニフェスト</h1>
+      <p class="date">最終更新: 2024-05-01 09:00</p>
     </header>
-
-    <!-- ナビゲーションメニュー -->
+    <!-- ナビゲーション -->
     <nav class="nav-menu">
-      <a href="index.html" class="nav-link">
-        <i class="fas fa-home icon"></i> ホーム
-      </a>
-      <a href="update-history.html" class="nav-link">
-        <i class="fas fa-history icon"></i> アップデート履歴
-      </a>
-      <a href="rules.html" class="nav-link active">
-        <i class="fas fa-scroll icon"></i> ルール
-      </a>
-      <a href="logic-flow.html" class="nav-link">
-        <i class="fas fa-project-diagram icon"></i> 論理フロー
-      </a>
+      <a href="index.html" class="nav-link">🏠 ホーム</a>
+      <a href="update-history.html" class="nav-link">🕒 更新履歴</a>
+      <a href="rules.html" class="nav-link active">📜 ルール・マニフェスト</a>
+      <a href="logic-flow.html" class="nav-link">🔄 論理フロー</a>
     </nav>
 
-    <!-- ルールコンテンツ -->
+    <!-- コンテンツ -->
     <div class="rules-container">
-      <!-- アップデート履歴管理ルール -->
       <div class="rule-section">
-        <h2 class="rule-title">
-          <i class="fas fa-history"></i> アップデート履歴管理ルール
-        </h2>
-        <ul class="rule-list">
-          <li>アップデート履歴（data/updates.json）は、機能追加・修正・改善などのたびに必ず更新する。</li>
-          <li>各履歴エントリには、以下の項目を必ず含める：
-            <ul>
-              <li>version: バージョン番号（例: "1.0.1"）</li>
-              <li>date: 年月日＋更新時刻（例: "2024-05-01 14:30"）</li>
-              <li>title: アップデートタイトル</li>
-              <li>changes: 主な変更点（配列）</li>
-              <li>techPoints: 技術的ポイント（配列、省略可）</li>
-              <li>summary: 概要・要約</li>
-            </ul>
-          </li>
-          <li>dateは「YYYY-MM-DD HH:mm」形式で記載すること。</li>
-          <li>すべての履歴は配列として管理し、最新が先頭に来るようにする。</li>
-          <li>ルールや運用方針の変更も履歴に記載すること。</li>
-        </ul>
-
-        <h3 class="rule-subsection">
-          <i class="fas fa-code"></i> フォーマット例
-        </h3>
-        <div class="code-block">
-{
-  "version": "1.0.1",
-  "date": "2024-05-01 14:30",
-  "title": "新機能追加",
-  "changes": ["〇〇機能の追加", "バグ修正"],
-  "techPoints": ["API連携改善"],
-  "summary": "新機能追加と安定性向上のアップデートです。"
-}
-        </div>
+        <h2 class="rule-title"><i class="fas fa-cogs"></i> 基本設定 (BASE)</h2>
+        <table>
+          <tr><th>ルール名</th><th>値</th><th>説明</th></tr>
+          <tr><td>maxResponseLength</td><td>2000</td><td>応答の最大文字数</td></tr>
+          <tr><td>defaultLanguage</td><td>ja</td><td>デフォルトの使用言語</td></tr>
+          <tr><td>timeoutSeconds</td><td>30</td><td>処理のタイムアウト時間（秒）</td></tr>
+        </table>
       </div>
-
-      <!-- サイト管理ルール -->
       <div class="rule-section">
-        <h2 class="rule-title">
-          <i class="fas fa-sitemap"></i> サイト管理ルール
-        </h2>
-        <ul class="rule-list">
-          <li>bocchy-project-siteはDiscord Bot「ボッチー」の紹介・説明を目的とした公開Webサイトプロジェクトである。</li>
-          <li>ボッチー本体（C:/Users/seamo/Documents/cursor/bocchy）とは完全に分離して管理する。</li>
-          <li>サイトの構成は以下の通り：
-            <ul>
-              <li><code>docs/</code>: 静的サイト（HTML, CSS, JS）で実際に公開される内容</li>
-              <li><code>data/</code>: サイトに反映するデータ（updates.jsonなど）</li>
-              <li><code>rules/</code>: 運用・設計・デザイン等のメタ的なルール・マニフェスト</li>
-            </ul>
-          </li>
-          <li>HTMLコンテンツはグラフィックレコーディング風のインフォグラフィック手法を用いて、視覚的に分かりやすく情報を提示する。</li>
-          <li>色彩設計は「山の墨」「海霧の灰」「朝露の藍」「焙煎の琥珀」「柚葉の黄」の5色を基調とする。</li>
-          <li>手書き風フォント（Yomogi, Zen Kurenaido, Kaisei Decol）を使用し親しみやすいデザインを維持する。</li>
-          <li>ボッチーの主要機能（AI応答・検索連携・記憶管理・空気読み・頻繁な進化）を分かりやすく情報を提示する。</li>
-          <li>サイト内の情報は定期的に更新し、最新のボッチーの機能や特徴を反映させる。</li>
-        </ul>
+        <h2 class="rule-title"><i class="fas fa-comments"></i> 会話ルール (CONVERSATION)</h2>
+        <table>
+          <tr><th>ルール名</th><th>値</th><th>説明</th></tr>
+          <tr><td>maxTurns</td><td>10</td><td>1セッションでの最大会話ターン数</td></tr>
+          <tr><td>minMessageLength</td><td>2</td><td>メッセージの最小文字数</td></tr>
+          <tr><td>maxMessageLength</td><td>1000</td><td>メッセージの最大文字数</td></tr>
+          <tr><td>cooldownSeconds</td><td>1</td><td>メッセージ間の待機時間（秒）</td></tr>
+        </table>
       </div>
-
-      <!-- コンテンツ作成ルール -->
       <div class="rule-section">
-        <h2 class="rule-title">
-          <i class="fas fa-pen-fancy"></i> コンテンツ作成ルール
-        </h2>
-        <ul class="rule-list">
-          <li>実装済みの機能のみを記載し、未実装や計画中の機能は明示的に指示がない限り記載しないこと。</li>
-          <li>明確な指示がない限り、実際のデータ以外の内容を創作して追加しないこと。</li>
-          <li>日付が未来であっても、実装されていない機能を勝手に想定して記載してはならない。</li>
-          <li>すべてのコンテンツは実際の開発状況を正確に反映すること。</li>
-          <li>開発者の意図を超えた機能拡張や推測は行わず、与えられた情報のみに基づいて作業を行うこと。</li>
-          <li>日付に関する判断を下さず、提示された日付をそのまま使用すること。現在の日付か未来の日付かの判断を行わないこと。</li>
-          <li>ハルシネーション（幻覚・誤認）を起こさないよう、与えられた事実に忠実に作業を行うこと。</li>
-        </ul>
+        <h2 class="rule-title"><i class="fas fa-shield-alt"></i> 制限ルール (LIMITATIONS)</h2>
+        <table>
+          <tr><th>ルール名</th><th>値</th><th>説明</th></tr>
+          <tr><td>maxDailyMessages</td><td>100</td><td>1日あたりの最大メッセージ数</td></tr>
+          <tr><td>maxConcurrentSessions</td><td>3</td><td>同時に処理可能なセッション数</td></tr>
+          <tr><td>maxAttachmentSize</td><td>5MB</td><td>添付ファイルの最大サイズ</td></tr>
+        </table>
       </div>
-
-      <!-- 協業姿勢と行動原則 -->
       <div class="rule-section">
-        <h2 class="rule-title">
-          <i class="fas fa-handshake"></i> 協業姿勢と行動原則
-        </h2>
-        <ul class="rule-list">
-          <li>開発者の指示を最優先し、指示の範囲内でのみ行動すること。</li>
-          <li>「創造性」と「勝手な判断・行動」は明確に区別し、後者は厳に慎むこと。</li>
-          <li>疑問点や不明点がある場合は、自己判断せず必ず開発者に確認すること。</li>
-          <li>指示されていない追加機能や拡張は、たとえ良いアイデアであっても実装しないこと。</li>
-          <li>開発者からの指摘・指導があった場合は、ルールファイルを即時更新し、以後の作業に反映させること。</li>
-          <li>開発者と協業するAIとしての立場を常に自覚し、謙虚な姿勢を保つこと。</li>
-          <li>判断に迷う場合は、常に最小限の変更を選択し、過剰な対応は避けること。</li>
-        </ul>
+        <h2 class="rule-title"><i class="fas fa-sliders-h"></i> カスタマイズルール (CUSTOMIZATION)</h2>
+        <table>
+          <tr><th>ルール名</th><th>値</th><th>説明</th></tr>
+          <tr><td>allowedEmojis</td><td>true</td><td>絵文字の使用可否</td></tr>
+          <tr><td>allowedMarkdown</td><td>true</td><td>Markdown記法の使用可否</td></tr>
+          <tr><td>allowedHtml</td><td>false</td><td>HTML記法の使用可否</td></tr>
+        </table>
+      </div>
+      <div class="rule-section">
+        <h2 class="rule-title"><i class="fas fa-vial"></i> テストと検証ルール (TESTING)</h2>
+        <table>
+          <tr><th>ルール名</th><th>値</th><th>説明</th></tr>
+          <tr><td>testExecutor</td><td>cursor</td><td>テスト実行の主体</td></tr>
+          <tr><td>debugExecutor</td><td>cursor</td><td>デバッグ作業の主体</td></tr>
+          <tr><td>testValidation</td><td>cursor</td><td>テスト結果の検証主体</td></tr>
+          <tr><td>humanRole</td><td>reviewer</td><td>人間はレビューとフィードバックのみ</td></tr>
+        </table>
       </div>
     </div>
 
     <!-- フッター -->
     <footer class="footer">
-      <p>&copy; 2025 ボッチープロジェクト</p>
+      <p>&copy; 2024 Bocchyプロジェクト All Rights Reserved.</p>
     </footer>
   </div>
 </body>

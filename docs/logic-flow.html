@@ -3,419 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチー 論理フロー | AI Discord Bot</title>
+  <title>論理フロー | Bocchy Discord Bot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .flow-container {
-      max-width: 900px;
-      margin: 30px auto;
-    }
-    
-    .flow-section {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-    }
-    
-    .flow-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 24px;
-      color: var(--asa-tsuyu-ai);
-      margin-top: 0;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .flow-chart {
-      position: relative;
-      padding: 30px 0;
-    }
-    
-    .flow-step {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 50px;
-      position: relative;
-    }
-    
-    .flow-step:last-child {
-      margin-bottom: 0;
-    }
-    
-    .flow-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 60px;
-      left: 35px;
-      width: 5px;
-      height: calc(100% - 30px);
-      background: repeating-linear-gradient(
-        to bottom,
-        var(--umi-kiri-hai) 0,
-        var(--umi-kiri-hai) 5px,
-        transparent 5px,
-        transparent 12px
-      );
-    }
-    
-    .flow-step-icon {
-      width: 70px;
-      height: 70px;
-      min-width: 70px;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 30px;
-      border: 2px solid var(--asa-tsuyu-ai);
-      font-size: 28px;
-      color: var(--asa-tsuyu-ai);
-      position: relative;
-      z-index: 2;
-    }
-    
-    .flow-step:nth-child(2) .flow-step-icon {
-      border-color: var(--housen-kohaku);
-      color: var(--housen-kohaku);
-    }
-    
-    .flow-step:nth-child(3) .flow-step-icon {
-      border-color: var(--yuha-ki);
-      color: var(--yuha-ki);
-    }
-    
-    .flow-step:nth-child(4) .flow-step-icon {
-      border-color: var(--umi-kiri-hai);
-      color: var(--umi-kiri-hai);
-    }
-    
-    .flow-step:nth-child(5) .flow-step-icon {
-      border-color: var(--asa-tsuyu-ai);
-      color: var(--asa-tsuyu-ai);
-    }
-    
-    .flow-step-content {
-      flex: 1;
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-    
-    .flow-step-content::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 25px;
-      width: 0;
-      height: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-right: 10px solid white;
-    }
-    
-    .flow-step-title {
-      font-family: 'Zen Kurenaido', sans-serif;
-      font-size: 20px;
-      font-weight: bold;
-      color: var(--yama-sumi);
-      margin-top: 0;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed var(--umi-kiri-hai);
-    }
-    
-    .flow-step-description {
-      color: var(--yama-sumi);
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-    
-    .flow-step-details {
-      background: rgba(59, 91, 120, 0.05);
-      border-radius: 8px;
-      padding: 15px;
-      font-size: 15px;
-    }
-    
-    .flow-step-details ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-    
-    .flow-step-details li {
-      margin-bottom: 8px;
-    }
-    
-    .flow-step-details li:last-child {
-      margin-bottom: 0;
-    }
-    
-    .benefit-points {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-    
-    .benefit-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      border-top: 4px solid var(--asa-tsuyu-ai);
-    }
-    
-    .benefit-card:nth-child(2) {
-      border-top-color: var(--housen-kohaku);
-    }
-    
-    .benefit-card:nth-child(3) {
-      border-top-color: var(--yuha-ki);
-    }
-    
-    .benefit-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 18px;
-      color: var(--yama-sumi);
-      margin-top: 0;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    @media screen and (max-width: 768px) {
-      .flow-container {
-        padding: 0 15px;
-      }
-      
-      .flow-section {
-        padding: 20px;
-      }
-      
-      .flow-step {
-        flex-direction: column;
-      }
-      
-      .flow-step-icon {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      
-      .flow-step:not(:last-child)::after {
-        left: 35px;
-        top: 70px;
-        width: 5px;
-        height: 30px;
-      }
-      
-      .flow-step-content::before {
-        left: 35px;
-        top: -10px;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid white;
-        border-top: none;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
-    <!-- 装飾要素 -->
-    <div class="deco-circle deco-circle-1"></div>
-    <div class="deco-circle deco-circle-2"></div>
-    <div class="deco-circle deco-circle-3"></div>
-
     <!-- ヘッダー -->
     <header class="header">
-      <h1 class="title">ボッチーの論理フロー</h1>
-      <p class="date">最終更新: 2025-04-29 10:00</p>
+      <h1 class="title">Bocchy Discord Bot の論理フロー</h1>
+      <p class="date">最終更新: 2024-05-01 09:00</p>
     </header>
 
-    <!-- ナビゲーションメニュー -->
+    <!-- ナビゲーション -->
     <nav class="nav-menu">
-      <a href="index.html" class="nav-link">
-        <i class="fas fa-home icon"></i> ホーム
-      </a>
-      <a href="update-history.html" class="nav-link">
-        <i class="fas fa-history icon"></i> アップデート履歴
-      </a>
-      <a href="rules.html" class="nav-link">
-        <i class="fas fa-scroll icon"></i> ルール
-      </a>
-      <a href="logic-flow.html" class="nav-link active">
-        <i class="fas fa-project-diagram icon"></i> 論理フロー
-      </a>
+      <a href="index.html" class="nav-link">🏠 ホーム</a>
+      <a href="update-history.html" class="nav-link">🕒 更新履歴</a>
+      <a href="rules.html" class="nav-link">📜 ルール・マニフェスト</a>
+      <a href="logic-flow.html" class="nav-link active">🔄 論理フロー</a>
     </nav>
 
-    <!-- フローコンテンツ -->
+    <!-- フローコンテナ -->
     <div class="flow-container">
-      <!-- 会話処理フロー -->
       <div class="flow-section">
-        <h2 class="flow-title">
-          <i class="fas fa-comments"></i> 自然対話処理フロー
-        </h2>
-        
+        <h2 class="flow-title"><i class="fas fa-project-diagram"></i> 自然対話処理フロー</h2>
         <div class="flow-chart">
+
           <!-- ステップ1 -->
           <div class="flow-step">
-            <div class="flow-step-icon">
-              <i class="fas fa-microphone-alt"></i>
-            </div>
+            <div class="flow-step-icon"><i class="fas fa-microphone-alt"></i></div>
             <div class="flow-step-content">
               <h3 class="flow-step-title">ユーザー入力</h3>
-              <p class="flow-step-description">
-                ユーザーからのテキストメッセージをDiscord上で受信します。ユーザーが質問、指示、雑談などの形で入力を行います。
-              </p>
+              <p class="flow-step-description">Discordでのテキストまたは音声入力を受信</p>
               <div class="flow-step-details">
                 <ul>
-                  <li>Discordからのイベントリスナーがメッセージを捕捉</li>
-                  <li>メンション判定またはDMからの直接メッセージを処理対象として認識</li>
-                  <li>前処理としてテキストの整形と基本的なフィルタリングを実施</li>
+                  <li>Discord.jsのイベントリスナーがメッセージを捕捉</li>
+                  <li>メンションまたはDMを処理対象として識別</li>
+                  <li>テキスト整形・フィルタリングを実施</li>
                 </ul>
               </div>
             </div>
           </div>
-          
+
           <!-- ステップ2 -->
           <div class="flow-step">
-            <div class="flow-step-icon">
-              <i class="fas fa-brain"></i>
-            </div>
+            <div class="flow-step-icon"><i class="fas fa-brain"></i></div>
             <div class="flow-step-content">
-              <h3 class="flow-step-title">意図理解と文脈把握</h3>
-              <p class="flow-step-description">
-                ユーザーの入力から意図を分析し、必要なアクションを判断します。また過去の会話履歴から文脈を理解します。
-              </p>
+              <h3 class="flow-step-title">意図理解 & 判断</h3>
+              <p class="flow-step-description">フラグ検出と行動タイプの決定</p>
               <div class="flow-step-details">
                 <ul>
-                  <li>OpenAI GPT-4o APIを利用した高度な自然言語理解</li>
-                  <li>会話履歴とユーザープロファイルをContext Windowに組み込み</li>
-                  <li>質問タイプの分類（情報検索、雑談、指示など）</li>
-                  <li>空気読み機能による会話の流れと適切な返答スタイルの判断</li>
+                  <li>検索 or 介入 or 両方のトリガーパターンを評価</li>
+                  <li>重み付けによるアクション選択: <code>search</code>, <code>intervention</code>, <code>combined</code></li>
+                  <li>decision_matrixに基づき次のステップを設定</li>
                 </ul>
               </div>
             </div>
           </div>
-          
+
           <!-- ステップ3 -->
           <div class="flow-step">
-            <div class="flow-step-icon">
-              <i class="fas fa-search"></i>
-            </div>
+            <div class="flow-step-icon"><i class="fas fa-search"></i></div>
             <div class="flow-step-content">
-              <h3 class="flow-step-title">情報検索と知識取得</h3>
-              <p class="flow-step-description">
-                ユーザーの質問に対して、必要に応じて外部情報源からデータを取得します。
-              </p>
+              <h3 class="flow-step-title">情報検索 (search.google)</h3>
+              <p class="flow-step-description">Google Custom Search APIで最新情報を取得</p>
               <div class="flow-step-details">
                 <ul>
-                  <li>Google Custom Search APIを利用したウェブ検索</li>
-                  <li>Supabaseに蓄積された過去の記憶データベースの検索</li>
-                  <li>関連性の高い情報のフィルタリングと優先順位付け</li>
-                  <li>検索結果と質問の関連性を評価して最適な情報を選択</li>
+                  <li>指定クエリをAPIに送信</li>
+                  <li>検索結果を要約し候補を抽出</li>
                 </ul>
               </div>
             </div>
           </div>
-          
+
           <!-- ステップ4 -->
           <div class="flow-step">
-            <div class="flow-step-icon">
-              <i class="fas fa-magic"></i>
-            </div>
+            <div class="flow-step-icon"><i class="fas fa-comments"></i></div>
             <div class="flow-step-content">
-              <h3 class="flow-step-title">応答生成</h3>
-              <p class="flow-step-description">
-                意図理解と取得した情報を基に、自然で役立つ応答を生成します。
-              </p>
+              <h3 class="flow-step-title">応答生成 (llm.respond)</h3>
+              <p class="flow-step-description">OpenAI GPT-4o/5 APIで自然な応答を生成</p>
               <div class="flow-step-details">
                 <ul>
-                  <li>GPT-4o APIによる文脈に合わせた自然な応答生成</li>
-                  <li>取得した情報と会話の流れに基づいた的確な回答の構成</li>
-                  <li>ユーザーの興味・関心に合わせたカスタマイズされた応答</li>
-                  <li>長さや詳細度を調整して会話の自然さを維持</li>
+                  <li>文脈と検索結果をプロンプトに組み込み</li>
+                  <li>最適な応答を作成しDiscordへ送信</li>
                 </ul>
               </div>
             </div>
           </div>
-          
+
           <!-- ステップ5 -->
           <div class="flow-step">
-            <div class="flow-step-icon">
-              <i class="fas fa-memory"></i>
-            </div>
+            <div class="flow-step-icon"><i class="fas fa-database"></i></div>
             <div class="flow-step-content">
-              <h3 class="flow-step-title">記憶と学習</h3>
-              <p class="flow-step-description">
-                ユーザーとの会話内容を記憶し、将来の対話に活用します。
-              </p>
+              <h3 class="flow-step-title">記憶保存</h3>
+              <p class="flow-step-description">Supabaseに会話履歴と要約を保存</p>
               <div class="flow-step-details">
                 <ul>
-                  <li>重要な会話のポイントをSupabaseデータベースに保存</li>
-                  <li>ユーザーの好みや関心事項の記録とプロファイリング</li>
-                  <li>繰り返し出現するトピックについての理解を深化</li>
-                  <li>個々のユーザーとの対話履歴に基づいたパーソナライズ</li>
+                  <li>重要な会話ポイントを保存</li>
+                  <li>次回以降の文脈維持に活用</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      
-      <!-- ユーザーメリット -->
-      <div class="flow-section">
-        <h2 class="flow-title">
-          <i class="fas fa-award"></i> ユーザーメリット
-        </h2>
-        
-        <p>ボッチーの論理設計により、以下のようなメリットがユーザーに提供されます：</p>
-        
-        <div class="benefit-points">
-          <div class="benefit-card">
-            <h3 class="benefit-title">
-              <i class="fas fa-comment-dots"></i> 自然な会話体験
-            </h3>
-            <p>
-              GPT-4oの高度な自然言語処理能力により、まるで人間と話しているような自然な対話が可能です。文脈を理解し、会話の流れに沿った応答を生成します。
-            </p>
-          </div>
-          
-          <div class="benefit-card">
-            <h3 class="benefit-title">
-              <i class="fas fa-info-circle"></i> 的確な情報提供
-            </h3>
-            <p>
-              Google検索連携により、最新かつ正確な情報をウェブから取得して提供します。単なる検索結果だけでなく、情報を整理して理解しやすい形で伝えます。
-            </p>
-          </div>
-          
-          <div class="benefit-card">
-            <h3 class="benefit-title">
-              <i class="fas fa-user-friends"></i> パーソナライズされた体験
-            </h3>
-            <p>
-              会話の記憶機能により、ユーザー一人ひとりの好みや関心事を学習し、時間とともにより適切な応答を提供します。過去の会話を覚えているため、長期的な関係構築が可能です。
-            </p>
-          </div>
+
         </div>
       </div>
     </div>
 
     <!-- フッター -->
     <footer class="footer">
-      <p>&copy; 2025 ボッチープロジェクト</p>
+      <p>&copy; 2024 Bocchyプロジェクト All Rights Reserved.</p>
     </footer>
   </div>
 </body>
