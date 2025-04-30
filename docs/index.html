@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ボッチープロジェクト | AI Discord Bot</title>
+  <title>ボッチー Discord Bot | AI Discord Bot</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap">
   <link rel="stylesheet" href="./assets/style.css">
   <style>
@@ -20,7 +20,7 @@
       left: 10px;
       width: 40px;
       height: 10px;
-      background-color: var(--yuzuha-ki);
+      background-color: var(--yuha-ki);
       border-radius: 5px;
     }
     
@@ -33,7 +33,7 @@
       position: absolute;
       top: -10px;
       right: 10px;
-      background-color: var(--yuzuha-ki);
+      background-color: var(--yuha-ki);
       color: var(--yama-sumi);
       font-family: 'Yomogi', cursive;
       padding: 3px 10px;
@@ -49,12 +49,12 @@
       border-radius: 12px;
       padding: 20px;
       position: relative;
-      border-left: 5px solid var(--asatsuyu-ai);
+      border-left: 5px solid var(--asa-tsuyu-ai);
     }
     
     .summary-title {
       font-size: 18px;
-      color: var(--asatsuyu-ai);
+      color: var(--asa-tsuyu-ai);
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -80,7 +80,7 @@
     .flow-title {
       font-family: 'Kaisei Decol', serif;
       font-size: 24px;
-      color: var(--asatsuyu-ai);
+      color: var(--asa-tsuyu-ai);
       margin-bottom: 20px;
       display: flex;
       align-items: center;
@@ -111,7 +111,7 @@
       padding: 10px 15px;
       border-radius: 8px;
       background: white;
-      border: 2px solid var(--asatsuyu-ai);
+      border: 2px solid var(--asa-tsuyu-ai);
       width: 200px;
       text-align: center;
       position: relative;
@@ -149,7 +149,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: var(--asatsuyu-ai);
+      background: var(--asa-tsuyu-ai);
       color: white;
       width: 120px;
       height: 120px;
@@ -265,20 +265,20 @@
   <div class="container">
     <div class="header">
       <h1 class="title">ボッチー Discord Bot</h1>
-      <div class="date">2024年5月22日</div>
+      <div class="date">最終更新: 2025-04-29 10:00</div>
     </div>
     
     <div class="nav-menu">
-      <a href="#" class="nav-link active"><span class="icon">🏠</span>ホーム</a>
-      <a href="./bocchy-updates.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
+      <a href="index.html" class="nav-link active"><span class="icon">🏠</span>ホーム</a>
+      <a href="./update-history.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
       <a href="./rules.html" class="nav-link"><span class="icon">📜</span>ルール・マニフェスト</a>
       <a href="./logic-flow.html" class="nav-link"><span class="icon">🔄</span>ロジックフロー</a>
     </div>
     
     <div class="intro-section">
       <p class="intro-text">
-        <span class="highlight">ボッチー</span>は自然な会話ができるAI搭載Discord Botです。
-        最新情報の検索、会話の記憶、空気を読む機能など、あなたのDiscordサーバーに新しい体験をもたらします。
+        <span class="highlight">ボッチー</span>は音声認識機能を強化し、マルチモーダル対応で画像理解が可能なAI搭載Discord Botです。
+        ユーザーの好みを学習し、プラグイン連携機能も拡張。GPT-5 API連携やVector DB最適化によりレスポンス速度が50%向上します。
       </p>
     </div>
     
@@ -332,6 +332,19 @@
           <li>状況に応じた介入度の自動調整</li>
           <li>感情分析による適切な対応</li>
           <li>グループ会話のリズムを尊重</li>
+        </ul>
+      </div>
+      
+      <div class="feature-card">
+        <div class="card-header">
+          <h2 class="card-title">頻繁な進化</h2>
+          <div class="card-icon">⚡️</div>
+        </div>
+        <ul class="feature-list">
+          <li>新機能追加とバグ修正を迅速に反映</li>
+          <li>ユーザー要望に基づく機能改善</li>
+          <li>モデルとシステムのパフォーマンス向上</li>
+          <li>継続的なチューニングと最適化</li>
         </ul>
       </div>
     </div>
@@ -392,13 +405,13 @@
     <div class="summary-box">
       <h2 class="summary-title">プロジェクト概要</h2>
       <div class="summary-content">
-        <p><span class="tag">バージョン</span>v1.0.0</p>
-        <p><span class="tag">公開日</span>2024年5月1日</p>
+        <p><span class="tag">バージョン</span>v2.1.0</p>
+        <p><span class="tag">公開日</span>2025-04-29 10:00</p>
         <p><span class="tag">開発</span>ボッチープロジェクト</p>
         <p class="summary-text">
-          ボッチーはOpenAI GPT-4o APIを活用した高度な会話能力と、Google検索連携による最新情報取得機能を持つDiscord Botです。
-          ユーザーとの自然な対話、会話の記憶保持、空気を読む機能により、より人間らしい会話体験を提供します。
-          Supabaseを活用した記憶システムにより、長期的な関係構築も可能です。
+          ボッチーの機能を大幅に強化しました。マルチモーダル対応で画像理解が可能になり、音声認識機能を強化。
+          ユーザーの好みを学習して応答をカスタマイズし、外部サービスとの連携も拡張しました。
+          また、GPT-5採用による理解力と表現力の向上、Vectorデータベースの最適化によりレスポンス速度が50%向上し、より高速で高度なインタラクションを実現します。
         </p>
       </div>
     </div>
