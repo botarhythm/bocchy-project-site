@@ -9,43 +9,48 @@
 </head>
 <body>
   <div class="container">
+    <!-- 背景デコレーション -->
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="deco-circle deco-circle-3"></div>
+
     <!-- ヘッダー -->
-    <header class="header">
+    <header class="header card">
       <h1 class="title">Bocchy Discord Bot の更新履歴</h1>
-      <p class="date">最終更新: 2024-05-01 09:00</p>
+      <p class="date">最終更新: 2025-04-29 10:00</p>
     </header>
     <!-- ナビゲーション -->
-    <nav class="nav-menu">
+    <nav class="nav-menu card">
       <a href="index.html" class="nav-link">🏠 ホーム</a>
       <a href="update-history.html" class="nav-link active">🕒 更新履歴</a>
       <a href="logic-flow.html" class="nav-link">🔄 論理フロー</a>
     </nav>
-    <!-- 更新カード -->
-    <div class="grid">
-      <div class="card">
-        <div class="version-tag">v1.0.0</div>
-        <h3 class="section-title">初回リリース</h3>
-        <p class="date">2024-05-01 09:00</p>
-        <ul>
+    <!-- 概要＆更新履歴 -->
+    <div class="update-grid card grid">
+      <div class="update-box">
+        <h3 class="section-title"><span class="icon">📝</span>最新アップデート概要</h3>
+        <p><span class="tag">バージョン</span> v1.0.0</p>
+        <p><span class="tag">公開日</span> 2025-04-29 10:00</p>
+        <p class="summary-text">AI応答機能、検索連携、会話ログ保存、空気読み機能を備えた初回リリースです。</p>
+      </div>
+      <div class="update-box">
+        <div class="update-header">
+          <span class="version">v1.0.0</span>
+          <span class="update-date">2025-04-29 10:00</span>
+        </div>
+        <h3 class="section-title"><span class="icon">🚀</span>初回リリース</h3>
+        <ul class="update-list">
           <li>AI応答機能の実装</li>
-          <li>Google検索連携の追加</li>
-          <li>Supabaseによる記憶管理</li>
-          <li>空気読み（盛り上がり度判定）機能の追加</li>
+          <li>検索連携の追加</li>
+          <li>会話ログ保存機能</li>
+          <li>空気読み機能</li>
         </ul>
-        <details>
-          <summary>技術的ポイント</summary>
-          <ul>
-            <li>OpenAI GPT-4o API連携</li>
-            <li>Google Custom Search API利用</li>
-            <li>Supabase DB連携設計</li>
-          </ul>
-        </details>
-        <p>bocchy-discord-botの最初のリリースです。自然言語応答、検索連携、会話の記憶管理、空気読み機能を搭載しています。</p>
+        <div class="update-summary">bocchy-discord-botの最初のリリースです。自然言語応答、検索連携、会話の記憶管理、空気読み機能を搭載しています。</div>
       </div>
     </div>
     <!-- フッター -->
     <footer class="footer">
-      <p>&copy; 2024 Bocchyプロジェクト All Rights Reserved.</p>
+      <p>&copy; 2025 Bocchyプロジェクト All Rights Reserved.</p>
     </footer>
   </div>
 </body>

@@ -9,85 +9,100 @@
 </head>
 <body>
   <div class="container">
+    <!-- 背景デコレーション -->
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="deco-circle deco-circle-3"></div>
+
     <!-- ヘッダー -->
-    <header class="header">
+    <header class="header card">
       <h1 class="title">ボッチー Discord Bot</h1>
       <p class="date">最終更新: 2025-04-29 10:00</p>
     </header>
 
     <!-- ナビゲーション -->
-    <nav class="nav-menu">
+    <nav class="nav-menu card">
       <a href="index.html" class="nav-link active"><span class="icon">🏠</span>ホーム</a>
       <a href="./update-history.html" class="nav-link"><span class="icon">🕒</span>アップデート履歴</a>
       <a href="./logic-flow.html" class="nav-link"><span class="icon">🔄</span>論理フロー</a>
     </nav>
 
     <!-- プロジェクト概要 -->
-    <div class="intro-section">
+    <div class="intro-section card">
       <p class="intro-text">ボッチーは高度なAI応答、検索連携、会話ログ保存、感情分析による空気読み機能を備えたDiscord Botです。継続的なアップデートで日々進化します。</p>
     </div>
 
     <!-- 主要機能 -->
-    <div class="feature-grid">
+    <div class="grid feature-grid">
       <div class="feature-card">
-        <div class="card-header">
-          <h2 class="card-title">AI応答</h2>
-          <div class="card-icon">🤖</div>
+        <div class="card feature-card">
+          <div class="card-header">
+            <h2 class="card-title">AI応答</h2>
+            <div class="card-icon">🤖</div>
+          </div>
+          <ul class="feature-list">
+            <li>OpenAI API連携で高度な対話</li>
+            <li>文脈を理解した自然な返答</li>
+            <li>カスタマイズ可能なスタイル</li>
+            <li>パフォーマンス最適化</li>
+          </ul>
         </div>
-        <ul class="feature-list">
-          <li>OpenAI API連携で高度な対話</li>
-          <li>文脈を理解した自然な返答</li>
-          <li>カスタマイズ可能なスタイル</li>
-          <li>パフォーマンス最適化</li>
-        </ul>
       </div>
       <div class="feature-card">
-        <div class="card-header">
-          <h2 class="card-title">検索連携</h2>
-          <div class="card-icon">🔍</div>
+        <div class="card feature-card">
+          <div class="card-header">
+            <h2 class="card-title">検索連携</h2>
+            <div class="card-icon">🔍</div>
+          </div>
+          <ul class="feature-list">
+            <li>Google Custom Search API利用</li>
+            <li>最新情報への即時アクセス</li>
+            <li>回答生成の精度向上</li>
+            <li>検索ワード最適化</li>
+          </ul>
         </div>
-        <ul class="feature-list">
-          <li>Google Custom Search API利用</li>
-          <li>最新情報への即時アクセス</li>
-          <li>回答生成の精度向上</li>
-          <li>検索ワード最適化</li>
-        </ul>
       </div>
       <div class="feature-card">
-        <div class="card-header">
-          <h2 class="card-title">記憶管理</h2>
-          <div class="card-icon">💾</div>
+        <div class="card feature-card">
+          <div class="card-header">
+            <h2 class="card-title">記憶管理</h2>
+            <div class="card-icon">💾</div>
+          </div>
+          <ul class="feature-list">
+            <li>Supabaseによる会話ログ保存</li>
+            <li>ユーザープロファイル化</li>
+            <li>文脈維持の継続対話</li>
+            <li>長期的な関係構築</li>
+          </ul>
         </div>
-        <ul class="feature-list">
-          <li>Supabaseによる会話ログ保存</li>
-          <li>ユーザープロファイル化</li>
-          <li>文脈維持の継続対話</li>
-          <li>長期的な関係構築</li>
-        </ul>
       </div>
       <div class="feature-card">
-        <div class="card-header">
-          <h2 class="card-title">空気読み</h2>
-          <div class="card-icon">🎭</div>
+        <div class="card feature-card">
+          <div class="card-header">
+            <h2 class="card-title">空気読み</h2>
+            <div class="card-icon">��</div>
+          </div>
+          <ul class="feature-list">
+            <li>盛り上がり判定と介入</li>
+            <li>感情分析による適切応答</li>
+            <li>グループ会話のリズム尊重</li>
+            <li>自動調整機能搭載</li>
+          </ul>
         </div>
-        <ul class="feature-list">
-          <li>盛り上がり判定と介入</li>
-          <li>感情分析による適切応答</li>
-          <li>グループ会話のリズム尊重</li>
-          <li>自動調整機能搭載</li>
-        </ul>
       </div>
       <div class="feature-card">
-        <div class="card-header">
-          <h2 class="card-title">頻繁な進化</h2>
-          <div class="card-icon">⚡️</div>
+        <div class="card feature-card">
+          <div class="card-header">
+            <h2 class="card-title">頻繁な進化</h2>
+            <div class="card-icon">⚡️</div>
+          </div>
+          <ul class="feature-list">
+            <li>迅速な機能追加とバグ修正</li>
+            <li>ユーザー要望に即対応</li>
+            <li>パフォーマンスチューニング</li>
+            <li>継続的最適化</li>
+          </ul>
         </div>
-        <ul class="feature-list">
-          <li>迅速な機能追加とバグ修正</li>
-          <li>ユーザー要望に即対応</li>
-          <li>パフォーマンスチューニング</li>
-          <li>継続的最適化</li>
-        </ul>
       </div>
     </div>
 
