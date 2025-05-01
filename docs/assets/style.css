@@ -217,9 +217,67 @@ body {
 }
 
 .flow-chart {
-  margin: 2rem 0;
-  max-width: 100%;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.flow-step.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 1rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-step.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* 横並び時の接続線 */
+.flow-step.card:not(:nth-child(5)):not(:nth-child(6)) {
+  /* 2行目以降と最終列を除く */
+  /* 線は矢印や疑似要素で描く */
+}
+
+/* 横矢印線 */
+.flow-step.card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: translateY(-50%);
+}
+
+/* 最終列の矢印を非表示 */
+@media (min-width: 768px) {
+  .flow-chart > .flow-step.card:nth-child(3n)::after,
+  .flow-chart > .flow-step.card:nth-child(3n+0)::after {
+    display: none;
+  }
+}
+
+/* 縦矢印線 */
+.flow-step.card::before {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  width: 2px;
+  height: 2rem;
+  background-color: var(--accent-color);
+  transform: translateX(-50%);
+}
+
+/* 最終行の縦線を非表示 */
+.flow-chart > .flow-step.card:nth-last-child(-n+3)::before {
+  display: none;
 }
 
 .flow-steps {
@@ -444,4 +502,75 @@ body {
     margin-bottom: 2rem;
     max-width: 100%;
   }
+}
+
+/* マインドマップセクション */
+.mindmap-container {
+  margin: 2rem 0;
+}
+.mindmap {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.mindmap-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.mindmap-node {
+  position: absolute;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-family: 'Yomogi', cursive;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  z-index: 2;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.mindmap-node:hover {
+  transform: scale(1.1);
+  border-color: var(--housen-kohaku);
+}
+/* 中心ノード */
+.mindmap-node.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-family: 'Kaisei Decol', serif;
+  background-color: var(--highlight-color);
+  color: white;
+  border-color: var(--housen-kohaku);
+}
+/* 各機能ノード */
+.mindmap-node.ai {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mindmap-node.search {
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+.mindmap-node.memory {
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.mindmap-node.emotion {
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.mindmap-node.evolve {
+  bottom: 10%;
+  right: 10%;
+  transform: translate(50%, 50%);
 } 
